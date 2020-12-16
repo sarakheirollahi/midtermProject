@@ -22,11 +22,26 @@ public class Univercity {
         return TheacheList;
     }
 
-    public void addClass(Class newClass) {
+    public void addClass(int limit,int unit,String className,String TheacherName,String Time) {
+        Class newClass = new Class(unit,limit,className,Time,TheacherName);
+
         ClassList.add(newClass);
     }
     public void addStudent(Student newStudent){
         StudentList.add(newStudent);
     }
-    public void 
-}
+    public void addTheacher(Theacher newTheacher){
+        TheacheList.add(newTheacher);
+    }
+    public void removeClass(String ClassName){
+
+        for ( int j=0  ; j< ClassList.size() ; j++) {
+            Class ex =ClassList.get(j);
+            if(ex.className==ClassName){
+               ClassList.remove(j);
+                break;}
+            }
+        }
+
+    }
+

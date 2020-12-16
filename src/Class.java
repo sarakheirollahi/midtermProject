@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Class {
     int unit;
-    String name;
+    String className;
     String thaecherName;
     int limit;
     ArrayList<Student> classStudent;
@@ -14,11 +14,11 @@ public class Class {
     }
    TIME time;
 
-     public Class(int unit,int limit,String name,String time,String thaecherName){
+     public Class(int unit,int limit,String className,String time,String thaecherName){
          this.thaecherName=thaecherName;
          this.limit=limit;
          this.unit=unit;
-         this.name=name;
+         this.className=className;
          this.time = this.time.valueOf(time);
      }
 
@@ -26,12 +26,24 @@ public class Class {
         this.unit=unit;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String className) {
+        this.className = className;
     }
 
-    public String getName() {
-        return name;
+    public String getClassName() {
+        return className;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public String getThaecherName() {
+        return thaecherName;
+    }
+
+    public ArrayList<Student> getStudentList() {
+        return classStudent;
     }
 
     public int getUnit() {
@@ -41,4 +53,20 @@ public class Class {
     public TIME getTime() {
         return time;
     }
+
+    public Student getStudent(String Name) {
+       int j;
+        for ( j = 0; j < classStudent.size(); j++) {
+            if (classStudent.get(j).getName() == Name) {
+              break;
+            }
+        }
+        return classStudent.get(j);
+    }
+   public int getNumbeOfStudent(){
+         return classStudent.size();
+   }
+   public void addStudent(Student newStudent){
+         classStudent.add(newStudent);
+   }
 }

@@ -24,7 +24,7 @@ public class Food {
         Color myColor4 = new Color(160 ,70 , 180);
         Color myColor3 = new Color(200 , 0, 220);
         Color myColor2 = new Color(200 , 100, 250,250);
-        Color myColor1  = new Color(150 , 0, 250,67);
+        Color myColor1  = new Color(150 , 0, 250,30);
         Color myColor = new Color(250 , 100, 250,100);
 
 
@@ -33,17 +33,20 @@ public class Food {
         this.foodweek = foodweek;
         this.account=account;
         foodframe = new JFrame();
+       // foodframe.setSize(700,700);
         setButton = new JButton("SET");
+        setButton.setForeground(Color.WHITE);
+        setButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 15));
 
         JLabel foodphoto =new JLabel();
         Border border = BorderFactory.createLineBorder(myColor4, 2);
-        foodphoto.setBorder(border);
-        ImageIcon foodlogo = new ImageIcon("C:\\Users\\ASUS\\IdeaProjects\\PortalSistem\\out\\Images\\food.jpg");
+      //  foodphoto.setBorder(border);
+        ImageIcon foodlogo = new ImageIcon("C:\\Users\\ASUS\\IdeaProjects\\PortalSistem\\out\\Images\\food2.jpg");
         foodphoto.setIcon(foodlogo);
 
-        JPanel mainPanel = new JPanel(new BorderLayout());
+        JPanel mainPanel = new JPanel(new BorderLayout(20,20));
 
-        mainPanel.add(foodphoto,BorderLayout.EAST);
+       // mainPanel.add(foodphoto,BorderLayout.EAST);
 
         foodframe.setContentPane(mainPanel);
 
@@ -53,21 +56,26 @@ public class Food {
         setButton.setBackground(myColor4);
         mainPanel.add(setButton,BorderLayout.SOUTH);
 
-        JLabel topLable = new JLabel(" FOOD SCHUDLE                 "+"      ACCOUNT :  "+account);
-        topLable.setBackground(Color.LIGHT_GRAY);
+        JLabel topLable = new JLabel(" FOOD SCHUDLE                                                 "+"      ACCOUNT :  "+account);
+        int toplablewidth = topLable.getPreferredSize().width;
+        int toplableheight = topLable.getPreferredSize().height + 30;
+        topLable.setPreferredSize(new Dimension(toplablewidth, toplableheight));
+        topLable.setBackground(myColor4);
+        topLable.setForeground(Color.WHITE);
+        topLable.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
         topLable.setOpaque(true);
         topLable.setHorizontalAlignment(SwingConstants.LEFT);
 
         mainPanel.add(topLable,BorderLayout.NORTH);
 
         JPanel foodTable = new JPanel(new GridLayout(8,2,5,5));
-        foodTable.setBackground(Color.LIGHT_GRAY);
+       // foodTable.setBackground(Color.LIGHT_GRAY);
 
         JCheckBox day1 =new JCheckBox(foodweek[0][0]+"       "+foodweek[0][1]);
         day1.setHorizontalTextPosition(SwingConstants.LEFT);
-        day1.setBackground(myColor);
+        day1.setBackground(myColor1);
         JCheckBox day2 =new JCheckBox(foodweek[1][0]+"       "+foodweek[1][1]);
-        day2.setBackground(myColor);
+        day2.setBackground(myColor1);
         day2.setHorizontalTextPosition(SwingConstants.LEFT);
         JCheckBox day3 =new JCheckBox(foodweek[2][0]+"       "+foodweek[2][1]);
         day3.setBackground(myColor1);
@@ -76,13 +84,13 @@ public class Food {
         day4.setBackground(myColor1);
         day4.setHorizontalTextPosition(SwingConstants.LEFT);
         JCheckBox day5 =new JCheckBox(foodweek[4][0]+"       "+foodweek[4][1]);
-        day5.setBackground(myColor2);
+        day5.setBackground(myColor1);
         day5.setHorizontalTextPosition(SwingConstants.LEFT);
         JCheckBox day6 =new JCheckBox(foodweek[5][0]+"       "+foodweek[5][1]);
-        day6.setBackground(myColor2);
+        day6.setBackground(myColor1);
         day6.setHorizontalTextPosition(SwingConstants.LEFT);
         JCheckBox day7 =new JCheckBox(foodweek[6][0]+"       "+foodweek[6][1]);
-        day7.setBackground(myColor3);
+        day7.setBackground(myColor1);
         day7.setHorizontalTextPosition(SwingConstants.LEFT);
 
 
@@ -95,21 +103,23 @@ public class Food {
                 {"SUNDAY",day7}};*/
 
         JLabel food = new JLabel(" FOOD ");
-        food.setBackground(myColor4);
+        food.setBackground(myColor1);
         food.setOpaque(true);
+        food.setFont(new Font("Helvetica Neue", Font.PLAIN, 15));
         food.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel day = new JLabel(" DAY ");
-        day.setBackground(myColor4);
+        day.setBackground(myColor1);
         day.setOpaque(true);
+        day.setFont(new Font("Helvetica Neue", Font.PLAIN, 15));
         day.setHorizontalAlignment(SwingConstants.CENTER);
 
         JLabel mon = new JLabel(" MONDAY  : ");
-        mon.setBackground(myColor);
+        mon.setBackground(myColor1);
         mon.setHorizontalAlignment(SwingConstants.LEFT);
         mon.setOpaque(true);
 
         JLabel tue = new JLabel(" TUESDAY  : ");
-        tue.setBackground(myColor);
+        tue.setBackground(myColor1);
         tue.setHorizontalAlignment(SwingConstants.LEFT);
         tue.setOpaque(true);
 
@@ -124,17 +134,17 @@ public class Food {
         thu.setOpaque(true);
 
         JLabel fri = new JLabel(" FRIDAY    : ");
-        fri.setBackground(myColor2);
+        fri.setBackground(myColor1);
         fri.setHorizontalAlignment(SwingConstants.LEFT);
         fri.setOpaque(true);
 
         JLabel stu = new JLabel(" STURDAY   : ");
-        stu.setBackground(myColor2);
+        stu.setBackground(myColor1);
         stu.setHorizontalAlignment(SwingConstants.LEFT);
         stu.setOpaque(true);
 
         JLabel sun = new JLabel(" SUNDAY    : ");
-        sun.setBackground(myColor3);
+        sun.setBackground(myColor1);
         sun.setHorizontalAlignment(SwingConstants.LEFT);
         sun.setOpaque(true);
 
@@ -161,10 +171,22 @@ public class Food {
 
        // JTable foodTable =new JTable(data,column);
 
+        JLabel westLable =new JLabel();
+        //int westlablewidth = topLable.getPreferredSize().width;
+        //int westlableheight = topLable.getPreferredSize().height;
+        //westLable.setPreferredSize(new Dimension(westlablewidth, westlableheight));
 
-
+        JLabel eastLable =new JLabel();
+       // int eastlablewidth = topLable.getPreferredSize().width;
+        //int eastlableheight = topLable.getPreferredSize().height;
+      //  eastLable.setPreferredSize(new Dimension(eastlablewidth, eastlableheight));
+        mainPanel.setSize(300,400);
+        mainPanel.add(westLable,BorderLayout.WEST);
+        mainPanel.add(eastLable,BorderLayout.EAST);
         mainPanel.add(foodTable,BorderLayout.CENTER);
-
+        foodTable.setBackground(Color.WHITE);
+        foodTable.setBorder(border);
+        mainPanel.setBackground(Color.WHITE);
 
         foodMenu = new  JMenu("Back To Homepage");
         foodbar = new JMenuBar();
@@ -175,6 +197,7 @@ public class Food {
     }
     public void showFoodframe() {
         foodframe.pack();
+         foodframe.setSize(750,550);
         foodframe.setVisible(true);
     }
 

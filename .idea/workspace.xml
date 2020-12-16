@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b32c4274-2b2d-4965-bb97-f3284cf0b2fd" name="Default Changelist" comment="" />
+    <list default="true" id="b32c4274-2b2d-4965-bb97-f3284cf0b2fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AddMemberPlane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AdminHomepage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IncrezAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SetFood.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TheacherHomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/proPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/Images/food.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/out/Images/food.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/Food.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/Profile$ButtonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/Profile$ButtonHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/Profile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/StudentHomepage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/StudentHomepage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudentHomepage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentHomepage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Theacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Theacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Univercity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Univercity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classManage.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +39,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1leL5nVesD36OXVUTnLgxp83hvP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HW3-4" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/Images" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -70,13 +99,32 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Food.java</url>
-          <line>125</line>
+          <line>135</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/AddMemberPlane.java</url>
+          <line>13</line>
+          <properties field="psswdField" class="AddMemberPlane" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -9,21 +9,25 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-public class Profile {
+public class IncrezAccount {
 
     private JFrame Profile;
-    private JButton saveButton;
+    private JButton payButton;
+    private JButton value1;
+    private JButton value2;
+    private JButton value3;
     private JPasswordField Password;
     private JPasswordField psswdField1;
     private JPasswordField psswdField2;
+    private JPasswordField psswdField3;
     private JMenu proMenu;
     private JMenuBar proBar;
 
 
 
-    public Profile() {
+    public IncrezAccount() {
 
-        Profile = new JFrame("CHANGE PASSWORD");
+        Profile = new JFrame("ACCOUNT");
         Profile.setLocationRelativeTo(null);
         Profile.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -38,8 +42,10 @@ public class Profile {
         panel.setBorder(new EmptyBorder(5, 5, 5, 5));
         Profile.setContentPane(panel);
 
-        JLabel label = new JLabel(" Please Enter Your Information ");
+        JLabel label = new JLabel(" Please Enter Your CreditCard Information ");
         label.setBackground(myColor2);
+        label.setForeground(Color.white);
+        label.setFont(new Font("Helvetica Neue", Font.PLAIN, 15));
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setOpaque(true);
         Border border = BorderFactory.createLineBorder(myColor2, 1);
@@ -52,26 +58,33 @@ public class Profile {
         ButtonHandler handler = new ButtonHandler();
 
 
-        JLabel unameLabel = new JLabel(" Current Password : ");
+        JLabel unameLabel = new JLabel(" Card Number : ");
         Password = new JPasswordField("");
 
         Password.addActionListener(handler);
         Password.addFocusListener(handler);
 
-        JLabel psswdLabel1 = new JLabel(" New Password : ");
+        JLabel psswdLabel1 = new JLabel(" PassWord : ");
         psswdField1 = new JPasswordField();
 
         psswdField1.addActionListener(handler);
         psswdField1.addFocusListener(handler);
 
 
-        JLabel psswdLabel2 = new JLabel(" Confirm New Password : ");
+        JLabel psswdLabel2 = new JLabel(" Expiry date: ");
         psswdField2 = new JPasswordField();
 
         psswdField2.addActionListener(handler);
         psswdField2.addFocusListener(handler);
 
-        JPanel fieldsPanel = new JPanel(new GridLayout(3, 3, 10, 10));
+        JLabel psswdLabel3 = new JLabel(" CVV2: ");
+        psswdField3 = new JPasswordField();
+
+        psswdField3.addActionListener(handler);
+        psswdField3.addFocusListener(handler);
+
+
+        JPanel fieldsPanel = new JPanel(new GridLayout(4, 4, 10, 10));
         fieldsPanel.setBackground(myColor);
         fieldsPanel.add(unameLabel);
         fieldsPanel.add(Password);
@@ -80,20 +93,43 @@ public class Profile {
         fieldsPanel.add(psswdLabel2);
         fieldsPanel.add(psswdField2);
         fieldsPanel.setBorder(border);
+        fieldsPanel.add(psswdLabel3);
+        fieldsPanel.add(psswdField3);
+        fieldsPanel.setBorder(border);
+
+       JPanel centerPanel = new JPanel(new BorderLayout(5,5));
+       centerPanel.setBackground(Color.white);
+       JPanel buttonPanel = new JPanel(new GridLayout(1,3,10,10));
+       buttonPanel.setBackground(Color.white);
+        value1 = new JButton("5$");
+        value1.setBackground(myColor2);
+        value1.setForeground(Color.white);
+        value2 = new JButton("10$");
+        value2.setBackground(myColor2);
+        value2.setForeground(Color.white);
+        value3 = new JButton("20$");
+        value3.setBackground(myColor2);
+        value3.setForeground(Color.white);
 
 
-        saveButton = new JButton("Save");
+        payButton = new JButton("PAY");
+        payButton.setForeground(Color.white);
 
-        saveButton.addActionListener(handler);
+        payButton.addActionListener(handler);
 
-        int buttonWidth = saveButton.getPreferredSize().width;
-        int buttonHeight = saveButton.getPreferredSize().height + 10;
-        saveButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
-        saveButton.setBackground(myColor2);
+        int buttonWidth = payButton.getPreferredSize().width;
+        int buttonHeight = payButton.getPreferredSize().height + 10;
+        payButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
+        payButton.setBackground(myColor2);
 
+        buttonPanel.add(value1);
+        buttonPanel.add(value2);
+        buttonPanel.add(value3);
+        centerPanel.add(fieldsPanel,BorderLayout.CENTER);
+        centerPanel.add(buttonPanel,BorderLayout.SOUTH);
         panel.add(label, BorderLayout.NORTH);
-        panel.add(fieldsPanel, BorderLayout.CENTER);
-        panel.add(saveButton, BorderLayout.SOUTH);
+        panel.add(centerPanel, BorderLayout.CENTER);
+        panel.add(payButton, BorderLayout.SOUTH);
 
 
 
@@ -103,7 +139,7 @@ public class Profile {
         Profile.setJMenuBar(proBar);
     }
 
-    public void showProfile() {
+    public void showIncrezAccount() {
         Profile.pack();
         Profile.setVisible(true);
     }
@@ -112,7 +148,7 @@ public class Profile {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource().equals(saveButton)) {
+            if (e.getSource().equals(payButton)) {
                 System.out.println("Button");
             } else if (e.getSource().equals(Password)) {
                 System.out.println("User Field");
@@ -128,11 +164,11 @@ public class Profile {
             String pwd2 = new String(psswdField2.getPassword());
             if (pass.equals(pwd)) {
                 if (pwd.equals(pwd2)){
-                JOptionPane.showMessageDialog(saveButton, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
+                    JOptionPane.showMessageDialog(payButton, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
                 else {
-                    JOptionPane.showMessageDialog(saveButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);}
+                    JOptionPane.showMessageDialog(payButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);}
             } else {
-                JOptionPane.showMessageDialog(saveButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(payButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);
             }
         }
 

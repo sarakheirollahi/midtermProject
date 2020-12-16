@@ -19,19 +19,61 @@ public class StudentHomepage {
         Color myColor2 = new Color(200 , 0, 250);
         Color myColor1 = new Color(200 , 0, 250,150);
         Color myColor = new Color(150 , 0, 250,67);
-        Color myColor3 = new Color(100 ,0 , 200);
+        Color myColor3 = new Color(150 ,80 , 200,250);
 
 
         studenthomeframe = new JFrame("STUDENT HOMEPAGE");
         studenthomeframe.setLocationRelativeTo(null);
         studenthomeframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        JPanel bakgroundPanel = new JPanel(new BorderLayout(40,40));
+        bakgroundPanel.setBackground(Color.white);
+
+
 
          JPanel mainjpalen =new JPanel(new GridLayout(2,2,10,10));
        // mainjpalen.setBorder(new EmptyBorder(5, 5, 5, 5))
-        mainjpalen.setBackground(myColor);
+         mainjpalen.setBackground(Color.white);
 
-         studenthomeframe.setContentPane(mainjpalen);
+         JLabel topLable = new JLabel("STUDENT  HOMEPAGE");
+        topLable.setBackground(myColor3);
+        topLable.setForeground(Color.white);
+        topLable.setOpaque(true);
+        topLable.setHorizontalAlignment(SwingConstants.CENTER);
+
+        int toplablewidth = topLable.getPreferredSize().width;
+        int toplableheight = topLable.getPreferredSize().height + 30;
+        topLable.setPreferredSize(new Dimension(toplablewidth, toplableheight));
+        topLable.setFont(new Font("Helvetica Neue", Font.PLAIN, 30));
+
+        JLabel bottomLable = new JLabel("AMIR KABIR");
+        bottomLable.setBackground(myColor3);
+        bottomLable.setFont(new Font("Monaco", Font.PLAIN, 20));
+        bottomLable.setForeground(Color.white);
+        bottomLable.setOpaque(true);
+        bottomLable.setHorizontalAlignment(SwingConstants.CENTER);
+
+        JLabel westLable =new JLabel();
+        int westlablewidth = topLable.getPreferredSize().width+40;
+        int westlableheight = topLable.getPreferredSize().height + 30;
+        westLable.setPreferredSize(new Dimension(westlablewidth, westlableheight));
+
+        JLabel eastLable =new JLabel();
+        int eastlablewidth = topLable.getPreferredSize().width+40;
+        int eastlableheight = topLable.getPreferredSize().height + 30;
+        eastLable.setPreferredSize(new Dimension(eastlablewidth, eastlableheight));
+
+
+        bakgroundPanel.add(topLable,BorderLayout.NORTH);
+        bakgroundPanel.add(bottomLable,BorderLayout.SOUTH);
+        bakgroundPanel.add(westLable,BorderLayout.WEST);
+        bakgroundPanel.add(eastLable,BorderLayout.EAST);
+
+
+
+        bakgroundPanel.add(mainjpalen,BorderLayout.CENTER);
+
+         studenthomeframe.setContentPane(bakgroundPanel);
 
          JPanel profile = new JPanel(new BorderLayout());
          JPanel classes = new JPanel(new BorderLayout());
@@ -44,15 +86,15 @@ public class StudentHomepage {
          JLabel accountphoto =new JLabel();
 
         Border border = BorderFactory.createLineBorder(myColor3, 2);
-        foodphoto.setBorder(border);
-        classphoto.setBorder(border);
-        proflephoto.setBorder(border);
-        accountphoto.setBorder(border);
+      //  foodphoto.setBorder(border);
+       // classphoto.setBorder(border);
+       // proflephoto.setBorder(border);
+       // accountphoto.setBorder(border);
 
 
          ImageIcon foodlogo = new ImageIcon("C:\\Users\\ASUS\\IdeaProjects\\PortalSistem\\out\\Images\\food.jpg");
-         ImageIcon profilelogo = new ImageIcon("C:\\Users\\ASUS\\IdeaProjects\\PortalSistem\\out\\Images\\Class.jpg");
-         ImageIcon classlogo = new ImageIcon("C:\\Users\\ASUS\\IdeaProjects\\PortalSistem\\out\\Images\\Profile.jpg");
+         ImageIcon profilelogo = new ImageIcon("C:\\Users\\ASUS\\IdeaProjects\\PortalSistem\\out\\Images\\Profile.jpg");
+         ImageIcon classlogo = new ImageIcon("C:\\Users\\ASUS\\IdeaProjects\\PortalSistem\\out\\Images\\Class.jpg");
          ImageIcon accountlogo = new ImageIcon("C:\\Users\\ASUS\\IdeaProjects\\PortalSistem\\out\\Images\\Account.jpg");
 
          foodphoto.setIcon(foodlogo);
@@ -65,6 +107,10 @@ public class StudentHomepage {
          JButton foodButton =new JButton("FOOD RESERVATION");
          JButton accountButton =new JButton("My Account");
 
+        profileButton.setForeground(Color.white);
+        foodButton.setForeground(Color.white);
+        classButton.setForeground(Color.white);
+        accountButton.setForeground(Color.white);
 
         int buttonWidth = profileButton.getPreferredSize().width;
         int buttonHeight = profileButton.getPreferredSize().height + 10;
@@ -92,10 +138,10 @@ public class StudentHomepage {
         // foodButton.setBorder(border1);
        //  classButton.setBorder(border1);
 
-         profileButton.setBackground(myColor2);
-         classButton.setBackground(myColor2);
-         foodButton.setBackground(myColor2);
-         accountButton.setBackground(myColor2);
+         profileButton.setBackground(myColor3);
+         classButton.setBackground(myColor3);
+         foodButton.setBackground(myColor3);
+         accountButton.setBackground(myColor3);
 
          profile.add(proflephoto,BorderLayout.CENTER);
          profile.add(profileButton,BorderLayout.SOUTH);
@@ -124,6 +170,7 @@ public class StudentHomepage {
     }
     public void showStudentpanel() {
         studenthomeframe.pack();
+        studenthomeframe.setSize(750,550);
         studenthomeframe.setVisible(true);
     }
 

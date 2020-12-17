@@ -22,19 +22,26 @@ public class AddMemberPlane extends JPanel {
 
 
 
-            String comboBoxItems[] = {"Student", "Theacher", "admin"};
+            String comboBoxItems[] = {"Student", "Theacher"};
             job = new JComboBox(comboBoxItems);
+            job.setBackground(Color.white);
+            job.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
+            job.setOpaque(true);
            // JPanel panel = new JPanel(new BorderLayout(5, 5));
            setLayout(new BorderLayout(5,5));
            setBackground(Color.white);
            setBorder(new EmptyBorder(5, 5, 5, 5));
 
             // Color myColor = new Color(150 , 0, 250);
-            JLabel label = new JLabel(" Enter  Information ");
-            label.setBackground(myColor1);
+
+            JLabel label = new JLabel("  Enter  Information ");
+            label.setBackground(myColor2);
+            label.setForeground(Color.white);
+            label.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
+
             label.setHorizontalAlignment(SwingConstants.CENTER);
             label.setOpaque(true);
-            Border border = BorderFactory.createLineBorder(myColor2, 2);
+            Border border = BorderFactory.createLineBorder(myColor2, 1);
             label.setBorder(border);
 
             int labelWidth = label.getPreferredSize().width;
@@ -46,17 +53,20 @@ public class AddMemberPlane extends JPanel {
 
             JLabel unameLabel = new JLabel(" Username : ");
             unameField = new JTextField("");
+            unameLabel.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
+
 
             unameField.addActionListener(handler);
             unameField.addFocusListener(handler);
 
             JLabel psswdLabel = new JLabel(" Password : ");
             psswdField = new JPasswordField();
+            psswdLabel.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
 
             psswdField.addActionListener(handler);
             psswdField.addFocusListener(handler);
 
-            JPanel fieldsPanel = new JPanel(new GridLayout(3, 2, 10, 10));
+            JPanel fieldsPanel = new JPanel(new GridLayout(8, 1, 5, 5));
             fieldsPanel.setBackground(myColor);
             fieldsPanel.add(unameLabel);
             fieldsPanel.add(unameField);
@@ -67,7 +77,8 @@ public class AddMemberPlane extends JPanel {
 
 
             addButton = new JButton("ADD");
-
+            addButton.setForeground(Color.white);
+            addButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
             addButton.addActionListener(handler);
 
             int buttonWidth = addButton.getPreferredSize().width;

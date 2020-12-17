@@ -19,11 +19,21 @@ public class SetFood extends JPanel {
         topLable.setBackground(myColor);
         topLable.setForeground(myColor4);
         topLable.setOpaque(true);
-        topLable.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+        topLable.setFont(new Font("Helvetica Neue", Font.BOLD, 25));
         int toplablewidth = topLable.getPreferredSize().width;
         int toplableheight = topLable.getPreferredSize().height + 20;
         topLable.setPreferredSize(new Dimension(toplablewidth, toplableheight));
       //  topLable.setFont(new Font("Helvetica Neue", Font.PLAIN, 30));
+
+        JLabel bottonLable =new JLabel("AUT",SwingConstants.CENTER);
+        bottonLable.setBackground(myColor);
+        bottonLable.setForeground(myColor3);
+        bottonLable.setOpaque(true);
+        bottonLable.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
+        int bottonLablew = topLable.getPreferredSize().width;
+        int bottonLableh = topLable.getPreferredSize().height + 20;
+        topLable.setPreferredSize(new Dimension(bottonLablew, bottonLableh));
+        add(bottonLable,BorderLayout.SOUTH);
 
         add(topLable,BorderLayout.NORTH);
 
@@ -69,7 +79,7 @@ public class SetFood extends JPanel {
         tueLable.setFont(new Font("Helvetica Neue", Font.PLAIN, 15));
         tueLable.setOpaque(true);
 
-       centerPanel.add(tueLable);
+        centerPanel.add(tueLable);
 
         ButtonGroup tueGroupBtn = new ButtonGroup();
 

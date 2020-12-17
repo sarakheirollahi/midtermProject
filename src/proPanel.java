@@ -86,7 +86,7 @@ public class proPanel extends JPanel {
             fieldsPanel.setBorder(border);
 
 
-            saveButton = new JButton("Save");
+            saveButton = new JButton("Chang");
             saveButton.setForeground(Color.white);
             saveButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
 

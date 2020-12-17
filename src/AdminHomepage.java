@@ -3,6 +3,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 // class extends JFrame
@@ -33,19 +34,31 @@ public class AdminHomepage extends JFrame {
         proPanel jp1 = new proPanel();
         SetFood jp2 = new SetFood();
         AddMemberPlane jp3 = new AddMemberPlane();
-        JPanel jp4 = new JPanel();
-
-
+        Class class1 =new Class(2,3,"hi","First","succes");
+        Class class8 =new Class(2,3,"hi","First","succes");
+        Class class5 =new Class(2,3,"hi","First","succes");
+        Class class7 =new Class(2,3,"hi","First","succes");
+        Class class6 =new Class(2,3,"hi","First","succes");
+        Class class2 =new Class(2,3,"hi","First","succes");
+        Class class3 =new Class(2,3,"hi","First","succes");
+        Class class4 =new Class(2,3,"hi","First","succes");
+        Class class9 =new Class(2,3,"hi","First","succes");
+        ArrayList<Class> m =new ArrayList<>();
+        m.add(class1);
+        m.add(class2);
+        m.add(class3);
+        m.add(class4);
+        m.add(class5);
+        m.add(class6);
+        m.add(class7);
+        m.add(class8);
+        m.add(class9);
+        ShowListPanel jp4 = new ShowListPanel(m);
         JLabel jl1 = new JLabel("Card1");
         JLabel jl2 = new JLabel("Card2");
         JLabel jl3 = new JLabel("Card3");
         JLabel jl4 = new JLabel("Card4");
 
-
-      //  jp1.add(jl1);
-      //  jp2.add(jl2);
-       // jp3.add(jl3);
-        jp4.add(jl4);
 
 
         cardPanel.add(jp1, "1");
@@ -85,9 +98,9 @@ public class AdminHomepage extends JFrame {
         leftpanel.add(image,BorderLayout.NORTH);
 
         buttonPanel.add(profiletBtn);
-        buttonPanel.add(nextBtn);
         buttonPanel.add(foodBtn);
         buttonPanel.add(addBtn);
+        buttonPanel.add(nextBtn);
 
 
         profiletBtn.addActionListener(new ActionListener()
@@ -114,17 +127,8 @@ public class AdminHomepage extends JFrame {
         {
             public void actionPerformed(ActionEvent arg0)
             {
+                cl.show(cardPanel,"4");
 
-                // if condition apply
-                if (currentCard < 4)
-                {
-
-                    // increment the value of currentcard by 1
-                    currentCard += 1;
-
-                    // show the value of currentcard
-                    cl.show(cardPanel, "" + 2);
-                }
             }
         });
 
@@ -133,8 +137,8 @@ public class AdminHomepage extends JFrame {
         {
             public void actionPerformed(ActionEvent arg0)
             {
-                cl.first(cardPanel);
-                currentCard = 1;
+                cl.show(cardPanel,"2");
+
             }
         });
 

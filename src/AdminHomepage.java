@@ -25,7 +25,7 @@ public class AdminHomepage extends JFrame {
 
         // Function to set visibility of JFrame
         setTitle("ADMIN HOMEPAGE");
-        setSize(750, 550);
+        setSize(950, 550);
         JPanel cardPanel = new JPanel();
 
         cl = new CardLayout();

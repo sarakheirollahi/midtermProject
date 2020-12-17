@@ -63,12 +63,14 @@ public class Main {
         form2.showIncrezAccount();*/
         // Creating Object of CardLayoutDemo class.
         AdminHomepage cl = new AdminHomepage();
+        TheacherHomePage c3 = new TheacherHomePage();
 
         // Function to set default operation of JFrame.
         cl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Function to set vivibility of JFrame.
         cl.setVisible(true);
+        c3.setVisible(true);
 
         //
 //		 LoginFormWithEventHandling login = new LoginFormWithEventHandling("MyLogin");

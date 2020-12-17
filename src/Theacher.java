@@ -34,15 +34,6 @@ public class Theacher {
         }
         return null;
     }
-    public void setPoint(int point,String studentName,String className){
 
-        for ( int j=0  ; j< thaechersClasses.size() ; j++) {
-            if(   thaechersClasses.get(j).getClassName()==className){
-               thaechersClasses.get(j).getStudent(studentName).setPoint(point,thaechersClasses.get(j).getUnit());
-                break;}
-        }
-        return;
-
-    }
 
 }

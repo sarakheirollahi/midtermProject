@@ -10,12 +10,13 @@ import java.awt.event.FocusListener;
 public class proPanel extends JPanel {
 
         private JButton saveButton;
+        private JButton saveButton2;
         private JPasswordField Password;
         private JPasswordField psswdField1;
         private JPasswordField psswdField2;
-        private JMenu proMenu;
-        private JMenuBar proBar;
-
+        private JTextField user;
+        private JTextField user1;
+        private JTextField user2;
 
 
         public proPanel() {
@@ -23,7 +24,6 @@ public class proPanel extends JPanel {
 
 
             Color myColor2 = new Color(0 , 150, 250);
-            Color myColor1 = new Color(150 , 0, 250,67);
             Color myColor = new Color(0 , 200, 250,57);
 
 
@@ -75,7 +75,7 @@ public class proPanel extends JPanel {
             psswdField2.addActionListener(handler);
             psswdField2.addFocusListener(handler);
 
-            JPanel fieldsPanel = new JPanel(new GridLayout(6, 1, 10, 10));
+            JPanel fieldsPanel = new JPanel(new GridLayout(7, 1, 10, 10));
             fieldsPanel.setBackground(myColor);
             fieldsPanel.add(unameLabel);
             fieldsPanel.add(Password);
@@ -97,10 +97,65 @@ public class proPanel extends JPanel {
             int buttonHeight = saveButton.getPreferredSize().height + 10;
             saveButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
             saveButton.setBackground(myColor2);
+            fieldsPanel.add(saveButton);
 
-          add(label, BorderLayout.NORTH);
-          add(fieldsPanel, BorderLayout.CENTER);
-          add(saveButton, BorderLayout.SOUTH);
+
+///////////////////change user name
+
+
+
+
+            JLabel unameLabel2 = new JLabel(" Current Username : ");
+            unameLabel2.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
+            user = new JTextField();
+
+            user.addActionListener(handler);
+            user.addFocusListener(handler);
+
+            JLabel userLabel1 = new JLabel(" New Username : ");
+            user1 = new JTextField();
+            userLabel1.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
+
+
+            user1.addActionListener(handler);
+            user1.addFocusListener(handler);
+
+
+            JLabel userLabel2 = new JLabel(" Confirm New Username : ");
+            userLabel2.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
+            user2 = new JTextField();
+
+
+            user2.addActionListener(handler);
+            user2.addFocusListener(handler);
+
+            JPanel fieldsPanel2 = new JPanel(new GridLayout(7, 1, 10, 10));
+            fieldsPanel2.setBackground(myColor);
+            fieldsPanel2.add(unameLabel2);
+            fieldsPanel2.add(user);
+            fieldsPanel2.add(userLabel1);
+            fieldsPanel2.add(user1);
+            fieldsPanel2.add(userLabel2);
+            fieldsPanel2.add(user2);
+            fieldsPanel2.setBorder(border);
+
+
+            saveButton2 = new JButton("Chang");
+            saveButton2.setForeground(Color.white);
+            saveButton2.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
+            saveButton2.addActionListener(handler);
+            saveButton2.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
+            saveButton2.setBackground(myColor2);
+            fieldsPanel2.add(saveButton2);
+
+            JPanel centerpanel = new JPanel(new GridLayout(1,2,5,5));
+            centerpanel.add(fieldsPanel);
+            centerpanel.add(fieldsPanel2);
+
+            add(label, BorderLayout.NORTH);
+            add(centerpanel, BorderLayout.CENTER);
+
+
 
 
 
@@ -125,15 +180,36 @@ public class proPanel extends JPanel {
                 String pass = new String(Password.getPassword());
                 String pwd = new String(psswdField1.getPassword());
                 String pwd2 = new String(psswdField2.getPassword());
-                if (pass.equals(pwd)) {
+               /////////////change  passs
+                if (e.getSource().equals(saveButton)) {
+                if (pass.equals(loginPanel.univercity.getPassWord())) {
                     if (pwd.equals(pwd2)){
+                        loginPanel.univercity.setPassWord(pwd);
                         JOptionPane.showMessageDialog(saveButton, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
                     else {
                         JOptionPane.showMessageDialog(saveButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);}
                 } else {
                     JOptionPane.showMessageDialog(saveButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);
+                }}
+
+                /////////////////////change user name
+                String name = user.getText();
+                String name1 = user1.getText();
+                String name2 = user2.getText();
+                if (e.getSource().equals(saveButton2)) {
+                if (name.equals(loginPanel.univercity.getUserName())) {
+                    if (name1.equals(name2)){
+                        loginPanel.univercity.setUserName(name1);
+
+                        JOptionPane.showMessageDialog(saveButton2, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
+                    else {
+                        JOptionPane.showMessageDialog(saveButton2, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);}
+                } else {
+                    JOptionPane.showMessageDialog(saveButton2, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);
                 }
-            }
+            }}
+
+
 
             @Override
             public void focusGained(FocusEvent e) {

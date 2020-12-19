@@ -13,19 +13,28 @@ public class Profile {
 
     private JFrame Profile;
     private JButton saveButton;
+    private JButton saveButton2;
     private JPasswordField Password;
     private JPasswordField psswdField1;
     private JPasswordField psswdField2;
+    private JTextField userField;
+    private JTextField userField1;
+    private JTextField userField2;
+    private JMenuItem item;
     private JMenu proMenu;
     private JMenuBar proBar;
+    private String studentUser;
+    private String studentPass;
 
 
 
-    public Profile() {
+    public Profile(String user,String pass) {
+        studentUser=user;
+        studentPass=pass;
 
         Profile = new JFrame("CHANGE PASSWORD");
         Profile.setLocationRelativeTo(null);
-        Profile.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      //  Profile.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Color myColor2 = new Color(160, 70, 200);
         Color myColor = new Color(150 , 0, 250,67);
@@ -71,17 +80,6 @@ public class Profile {
         psswdField2.addActionListener(handler);
         psswdField2.addFocusListener(handler);
 
-        JPanel fieldsPanel = new JPanel(new GridLayout(3, 3, 10, 10));
-        fieldsPanel.setBackground(myColor);
-        fieldsPanel.add(unameLabel);
-        fieldsPanel.add(Password);
-        fieldsPanel.add(psswdLabel1);
-        fieldsPanel.add(psswdField1);
-        fieldsPanel.add(psswdLabel2);
-        fieldsPanel.add(psswdField2);
-        fieldsPanel.setBorder(border);
-
-
         saveButton = new JButton("Save");
 
         saveButton.addActionListener(handler);
@@ -91,23 +89,119 @@ public class Profile {
         saveButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         saveButton.setBackground(myColor2);
 
+
+
+
+
+        JPanel fieldsPanel = new JPanel(new GridLayout(4, 2, 10, 10));
+        fieldsPanel.setBackground(myColor);
+        fieldsPanel.add(unameLabel);
+        fieldsPanel.add(Password);
+        fieldsPanel.add(psswdLabel1);
+        fieldsPanel.add(psswdField1);
+        fieldsPanel.add(psswdLabel2);
+        fieldsPanel.add(psswdField2);
+        fieldsPanel.add(saveButton);
+        fieldsPanel.setBorder(border);
+
+
+
+
+        ////////////////////change user
+
+
+        label.setBackground(myColor2);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+
+        label.setBorder(border);
+
+        label.setPreferredSize(new Dimension(labelWidth, labelHeight));
+
+        JLabel usernameLabel1 = new JLabel(" Current Username : ");
+        userField = new JTextField("");
+
+        userField.addActionListener(handler);
+        userField.addFocusListener(handler);
+
+        JLabel usernameLabel2 = new JLabel(" New Username : ");
+        userField1 = new JTextField();
+
+        userField1.addActionListener(handler);
+        userField1.addFocusListener(handler);
+
+
+        JLabel usernameLable3 = new JLabel(" Confirm New Username : ");
+        userField2 = new JPasswordField();
+
+        userField2.addActionListener(handler);
+        userField2.addFocusListener(handler);
+
+
+        saveButton2 = new JButton("Save");
+
+        saveButton2.addActionListener(handler);
+
+        saveButton2.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
+        saveButton2.setBackground(myColor2);
+
+
+
+        JPanel fieldsPanel2 = new JPanel(new GridLayout(4, 2, 10, 10));
+        fieldsPanel2.setBackground(myColor);
+        fieldsPanel2.add(usernameLabel1);
+        fieldsPanel2.add(userField);
+        fieldsPanel2.add(usernameLabel2);
+        fieldsPanel2.add(userField1);
+        fieldsPanel2.add(usernameLable3);
+        fieldsPanel2.add(userField2);
+        fieldsPanel2.add(saveButton2);
+        fieldsPanel2.setBorder(border);
+
+
+
+        JPanel centerPanel = new JPanel(new GridLayout(1,2));
+
+        centerPanel.add(fieldsPanel);
+        centerPanel.add(fieldsPanel2);
+
+
         panel.add(label, BorderLayout.NORTH);
-        panel.add(fieldsPanel, BorderLayout.CENTER);
-        panel.add(saveButton, BorderLayout.SOUTH);
+        panel.add(centerPanel, BorderLayout.CENTER);
 
 
-
-        proMenu = new  JMenu("Back To Homepage");
+        item = new JMenuItem("Back To HomePage");
+        proMenu = new  JMenu("Menue");
+        proMenu.add(item);
         proBar = new JMenuBar();
         proBar.add(proMenu);
         Profile.setJMenuBar(proBar);
+
+
+        item.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+                Profile.setVisible(false);
+            }
+        });
+
+
+
+
     }
 
     public void showProfile() {
         Profile.pack();
+        Profile.setSize(550,450);
+        Profile.setLocation(100,80);
         Profile.setVisible(true);
     }
 
+    public void closeProfile() {
+        Profile.pack();
+        Profile.setVisible(false);
+    }
     private class ButtonHandler implements ActionListener, FocusListener {
 
         @Override
@@ -126,14 +220,35 @@ public class Profile {
             String pass = new String(Password.getPassword());
             String pwd = new String(psswdField1.getPassword());
             String pwd2 = new String(psswdField2.getPassword());
-            if (pass.equals(pwd)) {
-                if (pwd.equals(pwd2)){
-                JOptionPane.showMessageDialog(saveButton, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
-                else {
-                    JOptionPane.showMessageDialog(saveButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);}
-            } else {
-                JOptionPane.showMessageDialog(saveButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);
-            }
+
+            String user = new String(userField.getText());
+            String newuser = new String(userField1.getText());
+            String newuser2 = new String(userField2.getText());
+
+            if (e.getSource().equals(saveButton)) {
+                if (pass.equals(loginPanel.univercity.findStudent(studentUser).getPass()) ){
+                    if (pwd.equals(pwd2)){
+                        studentPass=pwd;
+                        loginPanel.univercity.findStudent(studentUser).setPass(pwd);
+                        JOptionPane.showMessageDialog(saveButton, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
+                    else {
+                        JOptionPane.showMessageDialog(saveButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);}
+                } else {
+                    JOptionPane.showMessageDialog(saveButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);
+                }}
+
+
+            if (e.getSource().equals(saveButton2)) {
+                if (user.equals(loginPanel.univercity.findStudent(studentUser).getName()) ){
+                    if (newuser.equals(newuser2)){
+                        loginPanel.univercity.findStudent(studentUser).setName(newuser);
+                        studentUser=newuser;
+                        JOptionPane.showMessageDialog(saveButton2, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
+                    else {
+                        JOptionPane.showMessageDialog(saveButton2, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);}
+                } else {
+                    JOptionPane.showMessageDialog(saveButton2, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);
+                }}
         }
 
         @Override

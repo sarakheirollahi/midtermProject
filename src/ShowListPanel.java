@@ -17,25 +17,16 @@ public class ShowListPanel extends JPanel {
 
     private JButton addButton;
     private int unit;
-    private ArrayList<Class> currentClass;
-    private ArrayList<Student> students;
-    //  private Univercity uni;
 
-    public ShowListPanel  (ArrayList<Class> classes ) {
-        //  uni = new Univercity();
-        this.currentClass = classes;
-       // this.students=students;
+    public ShowListPanel  ( ) {
+
+
         Color myColor4 = new Color(0 , 150, 250);
-        Color myColor3 = new Color(190, 0, 250);
-        Color myColor2 = new Color(200, 100, 250, 250);
-        Color myColor1 = new Color(150, 0, 250, 67);
-        Color myColor = new Color(250, 100, 250, 100);
 
         addButton = new JButton("ADD");
 
 
         setLayout(new BorderLayout());
-
 
         int buttonWidth9 = addButton.getPreferredSize().width;
         int buttonHeight9 = addButton.getPreferredSize().height + 10;
@@ -84,7 +75,7 @@ public class ShowListPanel extends JPanel {
         topPanel.add(topLable3);
 
         add(topPanel, BorderLayout.NORTH);
-
+///////////////////claaaassss
         Object[] column = new Object[1];
         column[0] = "NAME";
 
@@ -99,8 +90,8 @@ public class ShowListPanel extends JPanel {
         Object[] row = new Object[1];
 
         //ArrayList<JRadioButton> radioButtons = new ArrayList<>();
-        for (int j = 0; j < currentClass.size(); j++) {
-            row[0] =currentClass.get(j).getClassName();
+        for (int j = 0; j < loginPanel.univercity.getClassList().size(); j++) {
+            row[0] =loginPanel.univercity.getClassList().get(j).getClassName();
             model.addRow(row);
         }
         coursTable.setModel(model);
@@ -108,7 +99,7 @@ public class ShowListPanel extends JPanel {
         // coursTable.setSize(500,400);
 
 
-
+/////////theacher
         Object[] column2 = new Object[1];
         column2[0] = "NAME";
 
@@ -124,13 +115,13 @@ public class ShowListPanel extends JPanel {
         Object[] row2 = new Object[1];
 
         //ArrayList<JRadioButton> radioButtons = new ArrayList<>();
-        for (int j = 0; j < currentClass.size(); j++) {
-            row2[0] =currentClass.get(j).getClassName();
+        for (int j = 0; j < loginPanel.univercity.getTheacheList().size(); j++) {
+            row2[0] =loginPanel.univercity.getTheacheList().get(j).getUserName();
             model2.addRow(row2);
         }
         coursTable2.setModel(model2);
 
-
+///////////student
         Object[] column3 = new Object[1];
         column3[0] = "NAME";
 
@@ -144,9 +135,10 @@ public class ShowListPanel extends JPanel {
         model3.setColumnIdentifiers(column3);
         Object[] row3 = new Object[1];
 
-        //ArrayList<JRadioButton> radioButtons = new ArrayList<>();
-        for (int j = 0; j < currentClass.size(); j++) {
-            row3[0] =currentClass.get(j).getClassName();
+
+ //ArrayList<JRadioButton> radioButtons = new ArrayList<>();
+        for (int j = 0; j < loginPanel.univercity.getStudentList().size(); j++) {
+            row3[0] =loginPanel.univercity.getStudentList().get(j).getName();
             model3.addRow(row3);
         }
         coursTable3.setModel(model3);

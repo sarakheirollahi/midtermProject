@@ -17,13 +17,15 @@ public class classManage {
     private JMenu classMenu;
     private JMenuBar classBar;
     private JButton addButton;
-    private int unit;
+    private String username;
     private ArrayList<Class> currentClass;
   //  private Univercity uni;
 
-    public classManage(int unit , ArrayList<Class> currentClass) {
-      //  uni = new Univercity();
-        this.currentClass = currentClass;
+    public classManage(String user) {
+        username =user;
+
+
+        this.currentClass = loginPanel.univercity.getClassList();
 
         Color myColor4 = new Color(160, 70, 200);
         Color myColor3 = new Color(190, 0, 250);
@@ -31,11 +33,11 @@ public class classManage {
         Color myColor1 = new Color(150, 0, 250, 67);
         Color myColor = new Color(250, 100, 250, 100);
 
-        this.unit = unit;
-        //this.foodweek = foodweek;
-        this.unit = unit;
-        classFrame = new JFrame();
+
         addButton = new JButton("ADD");
+
+        classFrame = new JFrame("CHANGE PASSWORD");
+
 
         JPanel mainPanel = new JPanel(new BorderLayout());
 
@@ -60,7 +62,7 @@ public class classManage {
         topLable1.setPreferredSize(new Dimension(toplablewidth, toplableheight));
         topLable1.setFont(new Font("Helvetica Neue", Font.PLAIN, 15));
 
-        JLabel topLable2 = new JLabel("  UNIT :  " + unit+" ");
+        JLabel topLable2 = new JLabel("  UNIT :  " + loginPanel.univercity.findStudent(username).getCurrentUnit()+" ");
         Border border1 = BorderFactory.createLineBorder(myColor4, 1);
         topLable2.setBorder(border1);
         topLable2.setBackground(Color.WHITE);
@@ -130,19 +132,26 @@ public class classManage {
         mainPanel.add(westLable,BorderLayout.WEST);
         mainPanel.add(eastLable,BorderLayout.EAST);
 
-        classMenu = new  JMenu("Back To Homepage");
+        classMenu = new  JMenu("Menue");
         classBar = new JMenuBar();
         classBar.add(classMenu);
         classFrame.setJMenuBar(classBar);
 
 
 
+
+
     }
-    public void showStudentpanel() {
+    public void showClassManage() {
         classFrame.pack();
         classFrame.setSize(750,550);
         classFrame.setVisible(true);
     }
+    public void closeClassManage() {
+
+        classFrame.setVisible(false);
+    }
+
 
 
 

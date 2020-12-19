@@ -11,11 +11,18 @@ import java.awt.image.BufferedImage;
 
 public class StudentHomepage {
     private JFrame studenthomeframe;
+    private JMenuItem item;
     private JMenu menu;
     private JMenuBar studentmenuBar;
+    private String studentUser;
+    private String studentPass;
    // private JPanel mainjpalen;
 
-    public StudentHomepage() {
+    public StudentHomepage(String user,String pass) {
+
+        studentUser=user;
+        studentPass=pass;
+
         Color myColor2 = new Color(200 , 0, 250);
         Color myColor1 = new Color(200 , 0, 250,150);
         Color myColor = new Color(150 , 0, 250,67);
@@ -25,6 +32,8 @@ public class StudentHomepage {
         studenthomeframe = new JFrame("STUDENT HOMEPAGE");
         studenthomeframe.setLocationRelativeTo(null);
         studenthomeframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        studenthomeframe.setLocation(10,10);
+
 
         JPanel bakgroundPanel = new JPanel(new BorderLayout(40,40));
         bakgroundPanel.setBackground(Color.white);
@@ -112,6 +121,42 @@ public class StudentHomepage {
         classButton.setForeground(Color.white);
         accountButton.setForeground(Color.white);
 
+        Profile proFrame = new Profile(studentUser,studentPass);
+        classManage claasFrame = new classManage(studentUser);
+        Food foodFrame = new Food(studentUser);
+
+
+
+        profileButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+             //  Profile proFrame = new Profile(studentUser,studentPass);
+               proFrame.showProfile();
+
+            }
+        });
+
+        classButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+
+                claasFrame.showClassManage();
+
+
+            }
+        });
+
+        foodButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+                foodFrame.showFoodframe();
+
+            }
+        });
+
         int buttonWidth = profileButton.getPreferredSize().width;
         int buttonHeight = profileButton.getPreferredSize().height + 10;
         profileButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
@@ -155,10 +200,23 @@ public class StudentHomepage {
         account.add(accountphoto,BorderLayout.CENTER);
         account.add(accountButton,BorderLayout.SOUTH);
 
-         menu = new  JMenu("Exite");
+
+         item = new JMenuItem("LOG OUT");
+         menu = new  JMenu("Menue");
+         menu.add(item);
          studentmenuBar = new JMenuBar();
          studentmenuBar.add(menu);
          studenthomeframe.setJMenuBar(studentmenuBar);
+
+         item.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+                proFrame.closeProfile();
+                claasFrame.closeClassManage();
+                studenthomeframe.setVisible(false);
+            }
+        });
 
 
 

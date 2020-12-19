@@ -15,10 +15,17 @@ public class Food {
     private JMenu foodMenu;
     private JMenuBar foodbar;
     private JButton setButton;
-    private int account;
-    private String[][] foodweek;
+    private String userName;
+    private String[] foodweek;
 
-    public Food(int account,String[][] foodweek){
+
+
+    public Food(String userName){
+    this.userName=userName;
+
+    foodweek=new String[loginPanel.univercity.getFood().length];
+
+        foodweek =loginPanel.univercity.getFood();
 
 
         Color myColor4 = new Color(160 ,70 , 180);
@@ -29,9 +36,8 @@ public class Food {
 
 
 
-        this.foodweek =new String[7][2];
-        this.foodweek = foodweek;
-        this.account=account;
+
+     //   this.account=account;
         foodframe = new JFrame();
        // foodframe.setSize(700,700);
         setButton = new JButton("SET");
@@ -56,7 +62,8 @@ public class Food {
         setButton.setBackground(myColor4);
         mainPanel.add(setButton,BorderLayout.SOUTH);
 
-        JLabel topLable = new JLabel(" FOOD SCHUDLE                                                 "+"      ACCOUNT :  "+account);
+        JLabel topLable = new JLabel(" FOOD SCHUDLE                                                 "+"      ACCOUNT :  "+
+                loginPanel.univercity.findStudent(userName).getAccount());
         int toplablewidth = topLable.getPreferredSize().width;
         int toplableheight = topLable.getPreferredSize().height + 30;
         topLable.setPreferredSize(new Dimension(toplablewidth, toplableheight));
@@ -71,25 +78,25 @@ public class Food {
         JPanel foodTable = new JPanel(new GridLayout(8,2,5,5));
        // foodTable.setBackground(Color.LIGHT_GRAY);
 
-        JCheckBox day1 =new JCheckBox(foodweek[0][0]+"       "+foodweek[0][1]);
+        JCheckBox day1 =new JCheckBox(foodweek[0]);
         day1.setHorizontalTextPosition(SwingConstants.LEFT);
         day1.setBackground(myColor1);
-        JCheckBox day2 =new JCheckBox(foodweek[1][0]+"       "+foodweek[1][1]);
+        JCheckBox day2 =new JCheckBox(foodweek[1]);
         day2.setBackground(myColor1);
         day2.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day3 =new JCheckBox(foodweek[2][0]+"       "+foodweek[2][1]);
+        JCheckBox day3 =new JCheckBox(foodweek[2]);
         day3.setBackground(myColor1);
         day3.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day4 =new JCheckBox(foodweek[3][0]+"       "+foodweek[3][1]);
+        JCheckBox day4 =new JCheckBox(foodweek[3]);
         day4.setBackground(myColor1);
         day4.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day5 =new JCheckBox(foodweek[4][0]+"       "+foodweek[4][1]);
+        JCheckBox day5 =new JCheckBox(foodweek[4]);
         day5.setBackground(myColor1);
         day5.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day6 =new JCheckBox(foodweek[5][0]+"       "+foodweek[5][1]);
+        JCheckBox day6 =new JCheckBox(foodweek[5]);
         day6.setBackground(myColor1);
         day6.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day7 =new JCheckBox(foodweek[6][0]+"       "+foodweek[6][1]);
+        JCheckBox day7 =new JCheckBox(foodweek[6]);
         day7.setBackground(myColor1);
         day7.setHorizontalTextPosition(SwingConstants.LEFT);
 
@@ -200,6 +207,8 @@ public class Food {
          foodframe.setSize(750,550);
         foodframe.setVisible(true);
     }
+
+
 
 
 }

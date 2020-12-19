@@ -16,6 +16,8 @@ public class AddMemberPlane extends JPanel {
 
 
         public AddMemberPlane() {
+
+
             Color myColor = new Color(0 , 200, 250,90);
             Color myColor1 = new Color(0 , 200, 250);
             Color myColor2 = new Color(0 , 150, 250);
@@ -89,13 +91,15 @@ public class AddMemberPlane extends JPanel {
             add(label, BorderLayout.NORTH);
             add(fieldsPanel, BorderLayout.CENTER);
             add(addButton, BorderLayout.SOUTH);
+
+
         }
 
 
 
-        private class ButtonHandler implements ActionListener, FocusListener {
+        private class ButtonHandler  implements ActionListener, FocusListener {
 
-            @Override
+
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource().equals(addButton)) {
                     System.out.println("Button");
@@ -107,12 +111,27 @@ public class AddMemberPlane extends JPanel {
 
                 String user = unameField.getText();
                 String pwd = new String(psswdField.getPassword());
-                if (user.equals(pwd)) {
-                   // JOptionPane.showMessageDialog(loginForm, "Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                  //  JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
-                }
-            }
+                Object field = job.getSelectedItem();
+
+              if (field =="Student") {
+                  if (!loginPanel.univercity.chekStudent(user)) {
+                      loginPanel.univercity.addStudent(user,pwd);
+
+                      JOptionPane.showMessageDialog(addButton, "Add Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+
+                  }
+                 else if (loginPanel.univercity.chekStudent(user)){
+                     JOptionPane.showMessageDialog(addButton, "usernam already exit", "FAILED", JOptionPane.ERROR_MESSAGE);}
+              }
+                else{
+                  if (!loginPanel.univercity.chekThecher(user)) {
+                      loginPanel.univercity.addTheacher(user,pwd);
+
+                      JOptionPane.showMessageDialog(addButton, "Add Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+                  }
+                  else {JOptionPane.showMessageDialog(addButton, " usernam already exit", "FAILED", JOptionPane.ERROR_MESSAGE);}
+              }}
+
 
             @Override
             public void focusGained(FocusEvent e) {

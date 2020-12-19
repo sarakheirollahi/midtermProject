@@ -6,19 +6,28 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 
+
+
 // class extends JFrame
 public class TheacherHomePage extends JFrame {
 
     // Initialization the value of
     // current card is 1 .
-    private int currentCard = 1;
+    private String userName;
+    private String passWord;
+    private JMenu menu;
+    private JMenuBar adminMnueBar;
+    private JMenuItem MnueItem;
 
     // Declaration of objects
     // of CardLayout class.
     private CardLayout cl;
 
-    public TheacherHomePage()
+    public TheacherHomePage(String userName,String passWord)
     {
+        this.passWord =passWord;
+        this.userName =userName;
+
         Color myColor1 = new Color(69, 13, 7, 255);
         Color myColor2 = new Color(255,255,153);
         Color myColor3 = new Color(227, 140, 19, 129);
@@ -32,29 +41,11 @@ public class TheacherHomePage extends JFrame {
         cardPanel.setLayout(cl);
 
 
-        Class class1 =new Class(2,3,"hi","First","succes");
-        Class class8 =new Class(2,3,"hi","First","succes");
-        Class class5 =new Class(2,3,"hi","First","succes");
-        Class class7 =new Class(2,3,"hi","First","succes");
-        Class class6 =new Class(2,3,"hi","First","succes");
-        Class class2 =new Class(2,3,"hi","First","succes");
-        Class class3 =new Class(2,3,"hi","First","succes");
-        Class class4 =new Class(2,3,"hi","First","succes");
-        Class class9 =new Class(2,3,"hi","First","succes");
-        ArrayList<Class> m =new ArrayList<>();
-        m.add(class1);
-        m.add(class2);
-        m.add(class3);
-        m.add(class4);
-        m.add(class5);
-        m.add(class6);
-        m.add(class7);
-        m.add(class8);
-        m.add(class9);
 
 
-        theacherProPanel jp1 = new theacherProPanel();
-        addClassPanel jp2 = new addClassPanel();
+
+        theacherProPanel jp1 = new theacherProPanel(userName,passWord);
+        addClassPanel jp2 = new addClassPanel(userName);
         removeClassPanel jp3 = new removeClassPanel();
         setPointPanel jp4 = new setPointPanel();
 
@@ -97,18 +88,35 @@ public class TheacherHomePage extends JFrame {
         image.setIcon(accountlogo);
         leftpanel.add(image,BorderLayout.NORTH);
 
+
+        MnueItem = new JMenuItem("LOG OUT");
+        menu = new  JMenu("Menue");
+        menu.add(MnueItem);
+        adminMnueBar = new JMenuBar();
+        adminMnueBar.add(menu);
+        setJMenuBar(adminMnueBar);
+
         buttonPanel.add(profiletBtn);
         buttonPanel.add(add_classBtn);
         buttonPanel.add(remove_classBtn);
         buttonPanel.add(students_pointBtn);
 
 
+       MnueItem.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+                setVisible(false);
+
+            }
+        });
+
         profiletBtn.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent arg0)
             {
                 cl.first(cardPanel);
-                currentCard = 1;
+
             }
         });
 

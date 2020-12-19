@@ -111,6 +111,16 @@ public class setPointPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
 
+
+            String classNameText = ClassName.getText();
+            String studentNameText = StudentName.getText();
+            String point = PointField.getText();
+
+            loginPanel.univercity.setPoint(Integer.parseInt(point),classNameText,studentNameText);
+
+            JOptionPane.showMessageDialog(saveButton, "SET Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+
+
         }
 
         @Override

@@ -9,13 +9,11 @@ import javax.swing.*;
 // class extends JFrame
 public class AdminHomepage extends JFrame {
 
-    // Initialization the value of
-    // current card is 1 .
-    private int currentCard = 1;
-
-    // Declaration of objects
-    // of CardLayout class.
     private CardLayout cl;
+    private JMenu menu;
+    private JMenuBar adminMnueBar;
+    private JMenuItem adminMnueItem;
+
 
     public AdminHomepage()
     {
@@ -31,34 +29,11 @@ public class AdminHomepage extends JFrame {
         cl = new CardLayout();
         cardPanel.setLayout(cl);
 
+
         proPanel jp1 = new proPanel();
         SetFood jp2 = new SetFood();
         AddMemberPlane jp3 = new AddMemberPlane();
-        Class class1 =new Class(2,3,"hi","First","succes");
-        Class class8 =new Class(2,3,"hi","First","succes");
-        Class class5 =new Class(2,3,"hi","First","succes");
-        Class class7 =new Class(2,3,"hi","First","succes");
-        Class class6 =new Class(2,3,"hi","First","succes");
-        Class class2 =new Class(2,3,"hi","First","succes");
-        Class class3 =new Class(2,3,"hi","First","succes");
-        Class class4 =new Class(2,3,"hi","First","succes");
-        Class class9 =new Class(2,3,"hi","First","succes");
-        ArrayList<Class> m =new ArrayList<>();
-        m.add(class1);
-        m.add(class2);
-        m.add(class3);
-        m.add(class4);
-        m.add(class5);
-        m.add(class6);
-        m.add(class7);
-        m.add(class8);
-        m.add(class9);
-        ShowListPanel jp4 = new ShowListPanel(m);
-        JLabel jl1 = new JLabel("Card1");
-        JLabel jl2 = new JLabel("Card2");
-        JLabel jl3 = new JLabel("Card3");
-        JLabel jl4 = new JLabel("Card4");
-
+        ShowListPanel jp4 = new ShowListPanel();
 
 
         cardPanel.add(jp1, "1");
@@ -97,18 +72,35 @@ public class AdminHomepage extends JFrame {
         image.setIcon(accountlogo);
         leftpanel.add(image,BorderLayout.NORTH);
 
+        adminMnueItem = new JMenuItem("LOG OUT");
+        menu = new  JMenu("Menue");
+        menu.add(adminMnueItem);
+        adminMnueBar = new JMenuBar();
+        adminMnueBar.add(menu);
+        setJMenuBar(adminMnueBar);
+
         buttonPanel.add(profiletBtn);
         buttonPanel.add(foodBtn);
         buttonPanel.add(addBtn);
         buttonPanel.add(nextBtn);
 
 
+        adminMnueItem.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent arg0)
+                    {
+                       setVisible(false);
+                }
+            });
+
+
         profiletBtn.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent arg0)
             {
+
                 cl.first(cardPanel);
-                currentCard = 1;
+
             }
         });
 
@@ -117,6 +109,7 @@ public class AdminHomepage extends JFrame {
         {
             public void actionPerformed(ActionEvent arg0)
             {
+
                 cl.show(cardPanel,"3");
 
             }
@@ -127,6 +120,9 @@ public class AdminHomepage extends JFrame {
         {
             public void actionPerformed(ActionEvent arg0)
             {
+                ShowListPanel showListPanel =new ShowListPanel();
+                cardPanel.add(showListPanel, "4");
+
                 cl.show(cardPanel,"4");
 
             }

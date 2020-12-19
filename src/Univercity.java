@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public class Univercity {
-    ArrayList<Class> ClassList;
-    ArrayList<Student> StudentList;
-    ArrayList<Theacher> TheacheList;
-    String [][] food;
-    String userName;
-    String passWord;
+   private   ArrayList<Class> ClassList;
+   private   ArrayList<Student> StudentList;
+   private   ArrayList<Theacher> TheacheList;
+   private String [] food;
+   private String userName;
+   private String passWord;
 
 
     public Univercity(){
@@ -15,7 +15,7 @@ public class Univercity {
         ClassList = new ArrayList<>();
         StudentList = new ArrayList<>();
         TheacheList = new ArrayList<>();
-        food = new String[7][2];
+        food = new String[7];
     }
 
 
@@ -27,8 +27,12 @@ public class Univercity {
         this.passWord = passWord;
     }
 
-    public void setFood(String[][] food) {
-        this.food = food;
+  //  public void setFood(String[] food) {
+      //  this.food = food;
+   // }
+
+    public String[] getFood() {
+        return food;
     }
 
     public ArrayList<Class> getClassList() {
@@ -43,7 +47,15 @@ public class Univercity {
         return TheacheList;
     }
 
-    public void addClass(int limit,int unit,String className,String TheacherName,String Time) {
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void addClass(int limit, int unit, String className, String TheacherName, String Time) {
         Class newClass = new Class(unit,limit,className,Time,TheacherName);
 
         ClassList.add(newClass);
@@ -58,6 +70,7 @@ public class Univercity {
         Theacher newTheacher =new Theacher(name,pass);
         TheacheList.add(newTheacher);
     }
+
 
     public void removeClass(String ClassName){
 
@@ -79,12 +92,84 @@ public class Univercity {
                 break;}
         }
     }
-    public void setFood(int day,int food){
+    public void setFood(int day,String foodName){
 
-        }
-
-
-
+        food[day] =foodName;
+     /*   switch (foodName) {
+            case 1:
+                food[day] = "PIZZA";
+                break;
+            case 2:
+                food[day] = "PASTA";
+                break;
+            case 3:
+                food[day] = "SALMON";
+                break;
+            case 4:
+                food[day] = "VPALTE";
+                break;
+            default:
+                break;
+        }*/
 
     }
+    public boolean chekClass(String user){
+
+        for ( int j=0  ; j< ClassList.size() ; j++) {
+
+            if( ClassList.get(j).getClassName().equals(user)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean chekThecher(String user){
+
+        for ( int j=0  ; j< TheacheList.size() ; j++) {
+
+            if( TheacheList.get(j).getUserName().equals(user)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+     public Theacher findThecher(String user){
+
+         for ( int j=0  ; j< TheacheList.size() ; j++) {
+
+             if( TheacheList.get(j).getUserName().equals(user) ){
+              return TheacheList.get(j);
+             }
+         }
+         return null;
+     }
+    public boolean chekStudent(String user){
+
+        for ( int j=0  ; j< StudentList.size() ; j++) {
+
+            if( StudentList.get(j).getName().equals(user) ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    public Student findStudent(String user){
+
+        for ( int j=0  ; j< StudentList.size() ; j++) {
+
+            if(StudentList.get(j).getName().equals(user)){
+                return StudentList.get(j);
+            }
+        }
+        return null;
+    }
+
+
+
+
+}
 

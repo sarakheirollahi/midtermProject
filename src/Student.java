@@ -18,6 +18,18 @@ public class Student {
         this.pass=pass;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
     public int getCurrentUnit() {
         return currentUnit;
     }
@@ -34,6 +46,7 @@ public class Student {
 
         this.point = (point*unit)/currentUnit;
     }
+
 
     public void increasAccount(int money){
         account =account+money;

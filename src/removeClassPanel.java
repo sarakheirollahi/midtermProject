@@ -79,10 +79,13 @@ public class removeClassPanel extends JPanel {
         int buttonHeight = saveButton.getPreferredSize().height + 10;
         saveButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         saveButton.setBackground(myColor2);
+        saveButton.addActionListener(handler);
+
 
         add(label, BorderLayout.NORTH);
         add(fieldsPanel, BorderLayout.CENTER);
         add(saveButton, BorderLayout.SOUTH);
+
 
 
 
@@ -93,8 +96,20 @@ public class removeClassPanel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            if (e.getSource().equals(saveButton)) {
+                System.out.println("Button");
 
-        }
+
+                String name = classNameFiled.getText();
+                if (loginPanel.univercity.chekClass(name)) {
+                    loginPanel.univercity.removeClass(name);
+                    JOptionPane.showMessageDialog(saveButton, "Remove Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+                } else
+                    JOptionPane.showMessageDialog(saveButton, "not exit!", "Result", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+
+    }
 
         @Override
         public void focusGained(FocusEvent e) {

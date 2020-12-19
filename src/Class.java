@@ -8,9 +8,9 @@ public class Class {
     int limit;
     ArrayList<Student> classStudent;
     enum TIME{
-        First,
-        Second,
-        Third
+        FIRST_TIME,
+        SECOND_TIME,
+        THIRD_TIME
     }
    TIME time;
 

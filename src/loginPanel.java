@@ -9,35 +9,45 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-public class GUI {
+ public class loginPanel {
 
     private JFrame loginForm;
     private JButton loginButton;
     private JTextField unameField;
     private JPasswordField psswdField;
     private JComboBox job;
+    static   public  Univercity univercity;
 
 
-    public GUI() {
+
+    public loginPanel() {
+        univercity = new Univercity();
+        univercity.addTheacher("hi","1");
+        univercity.addStudent("hi","1");
+        Color myColor = new Color(150 , 0, 250,67);
+        Color myColor1 = new Color(200 , 0, 250,150);
+        Color myColor2 = new Color(200 , 0, 250);
 
         loginForm = new JFrame("LOGIN");
         loginForm.setLocationRelativeTo(null);
         loginForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        String comboBoxItems[] = {"Student", "Theacher", "admin"};
-        job = new JComboBox(comboBoxItems);
-        Color myColor = new Color(150 , 0, 250,67);
+
+
         JPanel panel = new JPanel(new BorderLayout(5, 5));
-        panel.setBackground(myColor);
+        panel.setBackground(Color.white);
         panel.setBorder(new EmptyBorder(5, 5, 5, 5));
         loginForm.setContentPane(panel);
-       // Color myColor = new Color(150 , 0, 250);
-        Color myColor1 = new Color(200 , 0, 250,150);
+
+        String comboBoxItems[] = {"Student", "Theacher", "admin"};
+        job = new JComboBox(comboBoxItems);
+
+
         JLabel label = new JLabel(" Please Enter Your Information ");
         label.setBackground(myColor1);
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setOpaque(true);
-        Color myColor2 = new Color(200 , 0, 250);
+
         Border border = BorderFactory.createLineBorder(myColor2, 2);
         label.setBorder(border);
 
@@ -84,8 +94,10 @@ public class GUI {
         panel.add(loginButton, BorderLayout.SOUTH);
     }
 
-    public void showGUI() {
+    public void showloginPanel() {
         loginForm.pack();
+        loginForm.setSize(400,300);
+        loginForm.setLocation(100,100);
         loginForm.setVisible(true);
     }
 
@@ -94,6 +106,7 @@ public class GUI {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource().equals(loginButton)) {
+
                 System.out.println("Button");
             } else if (e.getSource().equals(unameField)) {
                 System.out.println("User Field");
@@ -103,11 +116,53 @@ public class GUI {
 
             String user = unameField.getText();
             String pwd = new String(psswdField.getPassword());
-            if (user.equals(pwd)) {
-                JOptionPane.showMessageDialog(loginForm, "Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
+            Object field = job.getSelectedItem();
+
+            if(field == "admin"){
+           if(user.equals(univercity.getUserName())) {
+               if (pwd.equals(univercity.getPassWord())) {
+                   AdminHomepage cl = new AdminHomepage();
+                   cl.setVisible(true);
+                 //  loginForm.setVisible(false);
+                   //JOptionPane.showMessageDialog(loginForm, "Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+               } else {
+                   JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
+               }}
+               else
+                   JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
+
             }
+            if(field == "Theacher"){
+                if(univercity.chekThecher(user)){
+                if (pwd.equals( univercity.findThecher(user).getPassWord())) {
+                    TheacherHomePage cl = new TheacherHomePage(user,pwd);
+                    cl.setVisible(true);
+               //     loginForm.setVisible(false);
+                    //JOptionPane.showMessageDialog(loginForm, "Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
+                }}
+                else
+                    JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
+
+                }
+
+
+            if(field == "Student"){
+             if(univercity.chekStudent(user)){
+                if (pwd.equals( univercity.findStudent(user).getPass())) {
+                    StudentHomepage form3 = new StudentHomepage(user,pwd);
+                    form3.showStudentpanel();
+            //        loginForm.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+             else
+                 JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
+
+            }
+
         }
 
         @Override

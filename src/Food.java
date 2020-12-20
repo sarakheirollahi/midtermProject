@@ -4,11 +4,8 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.IconView;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-
+import java.awt.event.*;
+//this class creat jframe  for student untill hi/she can rezerv  food
 
 public class Food {
     private JFrame foodframe;
@@ -17,6 +14,17 @@ public class Food {
     private JButton setButton;
     private String userName;
     private String[] foodweek;
+    private JCheckBox day1;
+    private JCheckBox day2;
+    private JCheckBox day3;
+    private JCheckBox day4;
+    private JCheckBox day5;
+    private JCheckBox day6;
+    private JCheckBox day7;
+    private int countChecked;
+    private   boolean[] selected;
+
+
 
 
 
@@ -24,17 +32,17 @@ public class Food {
     this.userName=userName;
 
     foodweek=new String[loginPanel.univercity.getFood().length];
-
+        loginPanel.univercity.findStudent(userName).increasAccount(4000);
         foodweek =loginPanel.univercity.getFood();
-
-
+        countChecked=0;
+        selected= new boolean[]{false,false,false,false,false,false,false};
         Color myColor4 = new Color(160 ,70 , 180);
         Color myColor3 = new Color(200 , 0, 220);
         Color myColor2 = new Color(200 , 100, 250,250);
         Color myColor1  = new Color(150 , 0, 250,30);
         Color myColor = new Color(250 , 100, 250,100);
 
-
+        ButtonHandler handler = new ButtonHandler();
 
 
      //   this.account=account;
@@ -60,10 +68,12 @@ public class Food {
         int buttonHeight9 = setButton.getPreferredSize().height + 10;
         setButton.setPreferredSize(new Dimension(buttonWidth9, buttonHeight9));
         setButton.setBackground(myColor4);
+        setButton.addActionListener(handler);
         mainPanel.add(setButton,BorderLayout.SOUTH);
 
-        JLabel topLable = new JLabel(" FOOD SCHUDLE                                                 "+"      ACCOUNT :  "+
-                loginPanel.univercity.findStudent(userName).getAccount());
+        JLabel topLable = new JLabel(" FOOD SCHUDLE                                                 "+"      " +
+                "ACCOUNT :  "
+                + loginPanel.univercity.findStudent(userName).getAccount());
         int toplablewidth = topLable.getPreferredSize().width;
         int toplableheight = topLable.getPreferredSize().height + 30;
         topLable.setPreferredSize(new Dimension(toplablewidth, toplableheight));
@@ -78,36 +88,35 @@ public class Food {
         JPanel foodTable = new JPanel(new GridLayout(8,2,5,5));
        // foodTable.setBackground(Color.LIGHT_GRAY);
 
-        JCheckBox day1 =new JCheckBox(foodweek[0]);
+        day1 =new JCheckBox(foodweek[0]);
+        day1.addItemListener(handler);
         day1.setHorizontalTextPosition(SwingConstants.LEFT);
         day1.setBackground(myColor1);
-        JCheckBox day2 =new JCheckBox(foodweek[1]);
+        day2 =new JCheckBox(foodweek[1]);
         day2.setBackground(myColor1);
+        day2.addItemListener(handler);
         day2.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day3 =new JCheckBox(foodweek[2]);
+        day3 =new JCheckBox(foodweek[2]);
         day3.setBackground(myColor1);
+        day3.addItemListener(handler);
         day3.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day4 =new JCheckBox(foodweek[3]);
+        day4 =new JCheckBox(foodweek[3]);
         day4.setBackground(myColor1);
+        day4.addItemListener(handler);
         day4.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day5 =new JCheckBox(foodweek[4]);
+        day5 =new JCheckBox(foodweek[4]);
         day5.setBackground(myColor1);
+        day5.addItemListener(handler);
         day5.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day6 =new JCheckBox(foodweek[5]);
+        day6 =new JCheckBox(foodweek[5]);
         day6.setBackground(myColor1);
+        day6.addItemListener(handler);
         day6.setHorizontalTextPosition(SwingConstants.LEFT);
-        JCheckBox day7 =new JCheckBox(foodweek[6]);
+        day7 =new JCheckBox(foodweek[6]);
         day7.setBackground(myColor1);
+        day7.addItemListener(handler);
         day7.setHorizontalTextPosition(SwingConstants.LEFT);
 
-
-       /* Object[][] data ={ {"MONDAY",day1},
-                {"TUESDAY",day2},
-                {"WENDESDAY",day3},
-                {"THURSDAY",day4},
-                {"FRIDAY",day5},
-                {"STURDAY",day6},
-                {"SUNDAY",day7}};*/
 
         JLabel food = new JLabel(" FOOD ");
         food.setBackground(myColor1);
@@ -206,6 +215,123 @@ public class Food {
         foodframe.pack();
          foodframe.setSize(750,550);
         foodframe.setVisible(true);
+    }
+
+    private class ButtonHandler implements ActionListener, FocusListener, ItemListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+
+            if (e.getSource().equals(setButton)) {
+                System.out.println("Button");
+                System.out.println(countChecked);
+                System.out.println(loginPanel.univercity.findStudent(userName).getAccount());
+
+                if (countChecked * 2000 <= loginPanel.univercity.findStudent(userName).getAccount()) {
+
+                    if (day1.isSelected()) {
+                        loginPanel.univercity.findStudent(userName).reserveFood(1);
+                    }
+                    if (day2.isSelected()) {
+                        loginPanel.univercity.findStudent(userName).reserveFood(2);
+                    }
+                    if (day3.isSelected()) {
+                        loginPanel.univercity.findStudent(userName).reserveFood(3);
+                    }
+                    if (day4.isSelected()) {
+                        loginPanel.univercity.findStudent(userName).reserveFood(4);
+                    }
+                    if (day5.isSelected()) {
+                        loginPanel.univercity.findStudent(userName).reserveFood(5);
+                    }
+                    if (day6.isSelected()) {
+                        loginPanel.univercity.findStudent(userName).reserveFood(6);
+                    }
+                    if (day7.isSelected()) {
+                        loginPanel.univercity.findStudent(userName).reserveFood(7);
+                    }
+                    JOptionPane.showMessageDialog(setButton, "Rezerve Successfully!", "Result", JOptionPane.INFORMATION_MESSAGE);
+
+                } else
+                    JOptionPane.showMessageDialog(setButton, "pleas Increas your Account!", "Result", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        @Override
+        public void itemStateChanged(ItemEvent ie) {
+
+            if (day1.isSelected()) {
+                day1.setEnabled(false);
+                if (!selected[0]){
+                selected[0]=true;
+                countChecked++;
+               }
+            }
+            if (day2.isSelected()) {
+                day2.setEnabled(false);
+                if (!selected[1]){
+                    selected[1]=true;
+                    countChecked++;
+                }
+            }
+            if (day3.isSelected()) {
+                day3.setEnabled(false);
+                if (!selected[2]){
+                    selected[2]=true;
+                    countChecked++;
+                }
+            }
+            if (day4.isSelected()) {
+                day4.setEnabled(false);
+                if (!selected[3]){
+                    selected[3]=true;
+                    countChecked++;
+                }
+            }
+            if (day5.isSelected()) {
+                day5.setEnabled(false);
+                if (!selected[4]){
+                    selected[4]=true;
+                    countChecked++;
+                }
+            }
+            if (day6.isSelected()) {
+                day6.setEnabled(false);
+                if (!selected[5]){
+                    selected[5]=true;
+                    countChecked++;
+                }
+            }
+            if (day7.isSelected()) {
+                day7.setEnabled(false);
+                if (!selected[6]){
+                    selected[6]=true;
+                    countChecked++;
+                }
+            }
+
+        System.out.println(countChecked);}
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            displayMessage("Focus gained", e);
+
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            displayMessage("Focus lost", e);
+
+        }
+
+        void displayMessage(String prefix, FocusEvent e) {
+            System.out.println(prefix
+                    + (e.isTemporary() ? " (temporary):" : ":")
+                    + e.getComponent().getClass().getName()
+                    + "; Opposite component: "
+                    + (e.getOppositeComponent() != null ? e.getOppositeComponent().getClass().getName()
+                    : "null"));
+        }
     }
 
 

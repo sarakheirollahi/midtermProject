@@ -20,6 +20,7 @@ public class Class {
          this.unit=unit;
          this.className=className;
          this.time = this.time.valueOf(time);
+         classStudent =  new ArrayList<>();
      }
 
     public void setUnit(int unit){

@@ -22,11 +22,11 @@ public class IncrezAccount {
     private JPasswordField psswdField3;
     private JMenu proMenu;
     private JMenuBar proBar;
+    private String user;
 
 
-
-    public IncrezAccount() {
-
+    public IncrezAccount(String user) {
+         this.user =user;
         Profile = new JFrame("ACCOUNT");
         Profile.setLocationRelativeTo(null);
         Profile.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -163,8 +163,18 @@ public class IncrezAccount {
             String pwd = new String(psswdField1.getPassword());
             String pwd2 = new String(psswdField2.getPassword());
             if (pass.equals(pwd)) {
-                if (pwd.equals(pwd2)){
-                    JOptionPane.showMessageDialog(payButton, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
+                if (pwd.equals(pwd2)) {
+                    if (value1.isSelected()) {
+                    loginPanel.univercity.findStudent(user).increasAccount(5000);
+                    }
+                    if (value2.isSelected()) {
+                        loginPanel.univercity.findStudent(user).increasAccount(10000);
+                    }
+                    if (value2.isSelected()) {
+                        loginPanel.univercity.findStudent(user).increasAccount(20000);
+                    }
+                        JOptionPane.showMessageDialog(payButton, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+                    }
                 else {
                     JOptionPane.showMessageDialog(payButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);}
             } else {

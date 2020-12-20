@@ -31,7 +31,6 @@ public class StudentHomepage {
 
         studenthomeframe = new JFrame("STUDENT HOMEPAGE");
         studenthomeframe.setLocationRelativeTo(null);
-        studenthomeframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         studenthomeframe.setLocation(10,10);
 
 
@@ -124,6 +123,7 @@ public class StudentHomepage {
         Profile proFrame = new Profile(studentUser,studentPass);
         classManage claasFrame = new classManage(studentUser);
         Food foodFrame = new Food(studentUser);
+        IncrezAccount accountFrame = new IncrezAccount(studentUser);
 
 
 
@@ -154,6 +154,13 @@ public class StudentHomepage {
             {
                 foodFrame.showFoodframe();
 
+            }
+        });
+        accountButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+                accountFrame.showIncrezAccount();
             }
         });
 

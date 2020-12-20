@@ -7,12 +7,18 @@ public class Student {
     int point;
     int currentUnit;
     boolean[] food;
+    int cardNumber;
+    int passCard;
    // ArrayList<Class> StudentClass;
 
 
     public Student(String name , String pass){
         food = new boolean[]{false,false,false,false,false,false,false};
         account=0;
+        point=0;
+        currentUnit=0;
+        cardNumber=0;
+        passCard=0;
       //  StudentClass =new ArrayList<>();
         this.name=name;
         this.pass=pass;
@@ -24,6 +30,10 @@ public class Student {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    public int getPoint() {
+        return point;
     }
 
     public String getPass() {
@@ -57,11 +67,14 @@ public class Student {
         currentUnit =currentUnit-className.getUnit();
         return ;
     }
-    public void addUnit(int unit){
+    public void addUnit(int unit)
+    {
         currentUnit=currentUnit+unit;
     }
     public void reserveFood(int date){
+
         food[date]=true;
+        account=account-2000;
     }
 
 }

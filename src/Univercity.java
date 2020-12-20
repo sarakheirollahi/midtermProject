@@ -123,6 +123,18 @@ public class Univercity {
         }
         return false;
     }
+
+
+    public Class findClass(String className){
+
+        for ( int j=0  ; j< ClassList.size() ; j++) {
+
+            if( ClassList.get(j).getClassName().equals(className) ){
+                return ClassList.get(j);
+            }
+        }
+        return null;
+    }
     public boolean chekThecher(String user){
 
         for ( int j=0  ; j< TheacheList.size() ; j++) {
@@ -166,6 +178,10 @@ public class Univercity {
             }
         }
         return null;
+    }
+    public void getClass(String user,String addingClass){
+        findStudent(user).addUnit(findClass(addingClass).getUnit());
+        findClass(addingClass).addStudent(findStudent(user));
     }
 
 

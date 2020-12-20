@@ -3,58 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="b32c4274-2b2d-4965-bb97-f3284cf0b2fd" name="Default Changelist" comment="level2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/AddMemberPlane$ButtonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/AddMemberPlane$ButtonHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/AddMemberPlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/AddMemberPlane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/AdminHomepage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/Food.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/GUI$ButtonHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/GUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/SetFood$ButtonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/SetFood$ButtonHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/SetFood.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/SetFood.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/ShowListPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/ShowListPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/ShowListPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/ShowListPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/ShowListPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/ShowListPanel$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/ShowListPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/ShowListPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/Theacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/Theacher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/TheacherHomePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/Univercity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/Univercity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/addClassPanel$ButtonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/addClassPanel$ButtonHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/addClassPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/addClassPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/proPanel$ButtonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/proPanel$ButtonHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/proPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/proPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/theacherProPanel$ButtonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/theacherProPanel$ButtonHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PortalSistem/theacherProPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortalSistem/theacherProPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddMemberPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddMemberPlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdminHomepage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminHomepage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Class.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SetFood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SetFood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShowListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IncrezAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IncrezAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StudentHomepage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentHomepage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Theacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Theacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TheacherHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TheacherHomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Univercity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Univercity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/addClassPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/addClassPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/removeClassPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/removeClassPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setPointPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/setPointPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/theacherProPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/theacherProPanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,19 +36,20 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Icon" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ASUS\IdeaProjects\PortalSistem\out" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\IdeaProjects\PortalSistem\Icon" />
       <recent name="C:\Users\ASUS\IdeaProjects\PortalSistem\out\Images" />
       <recent name="C:\Users\ASUS\IdeaProjects\PortalSistem\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\IdeaProjects\PortalSistem\out" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -158,11 +119,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Food.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/AddMemberPlane.java</url>
           <line>13</line>

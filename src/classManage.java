@@ -19,13 +19,16 @@ public class classManage {
     private JButton addButton;
     private String username;
     private ArrayList<Class> currentClass;
+    private JTable coursTable;
+    private JPanel mainPanel;
   //  private Univercity uni;
 
     public classManage(String user) {
         username =user;
 
+        currentClass=new ArrayList<>();
+        currentClass = loginPanel.univercity.getClassList();
 
-        this.currentClass = loginPanel.univercity.getClassList();
 
         Color myColor4 = new Color(160, 70, 200);
         Color myColor3 = new Color(190, 0, 250);
@@ -33,13 +36,13 @@ public class classManage {
         Color myColor1 = new Color(150, 0, 250, 67);
         Color myColor = new Color(250, 100, 250, 100);
 
-
+        ButtonHandler handler = new ButtonHandler();
         addButton = new JButton("ADD");
-
+        addButton.addActionListener(handler);
         classFrame = new JFrame("CHANGE PASSWORD");
 
 
-        JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel = new JPanel(new BorderLayout());
 
         classFrame.setContentPane(mainPanel);
 
@@ -83,12 +86,12 @@ public class classManage {
 
         Object[] column = new Object[5];
                 column[0] = "NAME";
-                column[1] = "UNIT";
-                column[2] = "THEACHER";
+                column[1] = "THEACHER";
+                column[2] = "UNIT";
                 column[3] = "TIME";
                 column[4] = "LIMIT";
 
-        JTable coursTable = new JTable(){
+       coursTable = new JTable(){
             private static final long serialVersionUID = 1L;
             public boolean isCellEditable(int row, int column) {
             return false;
@@ -104,7 +107,8 @@ public class classManage {
             row[1] =currentClass.get(j).getThaecherName();
             row[2] = currentClass.get(j).getUnit();
             row[3] = currentClass.get(j).getTime();
-            String limit = currentClass.get(j).getLimit()+" /  "+currentClass.get(j).getLimit();
+             int i=  currentClass.get(j).getLimit()-loginPanel.univercity.getClassList().get(j).classStudent.size();
+            String limit =i +"  /  "+currentClass.get(j).getLimit();
 
             row[4] = limit;
             JRadioButton radioButton = new JRadioButton();
@@ -116,7 +120,6 @@ public class classManage {
        // coursTable.setSize(500,400);
 
         JScrollPane pane = new JScrollPane(coursTable);
-        mainPanel.add(pane,BorderLayout.CENTER);
 
         JLabel westLable =new JLabel();
         int westlablewidth = westLable.getPreferredSize().width+30;
@@ -129,6 +132,7 @@ public class classManage {
         int eastlableheight = eastLable.getPreferredSize().height+20;
         eastLable.setPreferredSize(new Dimension(eastlablewidth, eastlableheight));
 
+        mainPanel.add(pane,BorderLayout.CENTER);
         mainPanel.add(westLable,BorderLayout.WEST);
         mainPanel.add(eastLable,BorderLayout.EAST);
 
@@ -136,6 +140,10 @@ public class classManage {
         classBar = new JMenuBar();
         classBar.add(classMenu);
         classFrame.setJMenuBar(classBar);
+
+
+
+        loginPanel.univercity.findStudent(username).getClass();
 
 
 
@@ -152,6 +160,68 @@ public class classManage {
         classFrame.setVisible(false);
     }
 
+    private class ButtonHandler implements ActionListener, FocusListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource().equals(addButton)) {
+
+               String s= coursTable.getValueAt(coursTable.getSelectedRow(),2).toString();
+
+
+            if(loginPanel.univercity.findStudent(username).getPoint()>17){
+              if (loginPanel.univercity.findStudent(username).currentUnit+Integer.parseInt(s)<24){
+
+                  loginPanel.univercity.getClass(username,coursTable.getValueAt(coursTable.getSelectedRow(),0).toString());
+
+                  JOptionPane.showMessageDialog(addButton, "Add Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+
+              }
+            else
+                  JOptionPane.showMessageDialog(addButton, "your class is full!", "Result", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+
+            else {
+                if (loginPanel.univercity.findStudent(username).currentUnit+Integer.parseInt(s)<20){
+
+                    loginPanel.univercity.getClass(username,coursTable.getValueAt(coursTable.getSelectedRow(),0).toString());
+                    
+                    JOptionPane.showMessageDialog(addButton, "Add Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                    JOptionPane.showMessageDialog(addButton, "your class is full!", "Result", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+
+            }
+
+
+        }
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            displayMessage("Focus gained", e);
+
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            displayMessage("Focus lost", e);
+
+        }
+
+        void displayMessage(String prefix, FocusEvent e) {
+            System.out.println(prefix
+                    + (e.isTemporary() ? " (temporary):" : ":")
+                    + e.getComponent().getClass().getName()
+                    + "; Opposite component: "
+                    + (e.getOppositeComponent() != null ? e.getOppositeComponent().getClass().getName()
+                    : "null"));
+        }
+    }
 
 
 

@@ -3,15 +3,16 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class StudentHomepage {
     private JFrame studenthomeframe;
     private JMenuItem item;
+    private JMenuItem Item2;
     private JMenu menu;
     private JMenuBar studentmenuBar;
     private String studentUser;
@@ -209,8 +210,10 @@ public class StudentHomepage {
 
 
          item = new JMenuItem("LOG OUT");
+         Item2 = new JMenuItem("SAVE CHANGE");
          menu = new  JMenu("Menue");
          menu.add(item);
+         menu.add(Item2);
          studentmenuBar = new JMenuBar();
          studentmenuBar.add(menu);
          studenthomeframe.setJMenuBar(studentmenuBar);
@@ -221,10 +224,28 @@ public class StudentHomepage {
             {
                 proFrame.closeProfile();
                 claasFrame.closeClassManage();
+                foodFrame.closeFoodframe();
                 studenthomeframe.setVisible(false);
+                loginPanel form = new loginPanel();
+                form.showloginPanel();
             }
         });
 
+        item.setAccelerator(KeyStroke.getKeyStroke(
+                KeyEvent.VK_E, ActionEvent.CTRL_MASK));
+
+
+        Item2.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+             saveUnivercity(loginPanel.univercity);
+            JOptionPane.showMessageDialog(Item2, "Save Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
+
+        });
+
+        Item2.setAccelerator(KeyStroke.getKeyStroke(
+                KeyEvent.VK_S, ActionEvent.CTRL_MASK));
 
 
          mainjpalen.add(profile);
@@ -237,6 +258,21 @@ public class StudentHomepage {
         studenthomeframe.pack();
         studenthomeframe.setSize(750,550);
         studenthomeframe.setVisible(true);
+    }
+    public void saveUnivercity(Univercity univercity){
+        File f=new File("E:\\univercity.obj");
+        try{
+            FileOutputStream os=new FileOutputStream(f);
+            ObjectOutputStream oos = new ObjectOutputStream(os);
+            oos.writeObject(univercity);
+            oos.close();
+            os.close();
+        }catch (FileNotFoundException ex){
+            Logger.getLogger(loginPanel.class.getName())
+                    .log(Level.SEVERE,null,ex);
+        }catch (IOException ex){
+            Logger.getLogger(AdminHomepage.class.getName()).log(Level.SEVERE,null,ex);
+        }
     }
 
 }

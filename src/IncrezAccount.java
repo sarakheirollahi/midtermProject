@@ -8,6 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class IncrezAccount {
 
@@ -29,7 +32,7 @@ public class IncrezAccount {
          this.user =user;
         Profile = new JFrame("ACCOUNT");
         Profile.setLocationRelativeTo(null);
-        Profile.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         Color myColor2 = new Color(160, 70, 200);
         Color myColor = new Color(150 , 0, 250,67);
@@ -166,14 +169,17 @@ public class IncrezAccount {
                 if (pwd.equals(pwd2)) {
                     if (value1.isSelected()) {
                     loginPanel.univercity.findStudent(user).increasAccount(5000);
+                  //  saveUnivercity(loginPanel.univercity);
                     }
                     if (value2.isSelected()) {
                         loginPanel.univercity.findStudent(user).increasAccount(10000);
+                       // saveUnivercity(loginPanel.univercity);
                     }
                     if (value2.isSelected()) {
                         loginPanel.univercity.findStudent(user).increasAccount(20000);
+                       // saveUnivercity(loginPanel.univercity);
                     }
-                        JOptionPane.showMessageDialog(payButton, "Change Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(payButton, "Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
                     }
                 else {
                     JOptionPane.showMessageDialog(payButton, "Failed!", "Result", JOptionPane.ERROR_MESSAGE);}
@@ -202,6 +208,8 @@ public class IncrezAccount {
                     + (e.getOppositeComponent() != null ? e.getOppositeComponent().getClass().getName()
                     : "null"));
         }
+
+
     }
 
 }

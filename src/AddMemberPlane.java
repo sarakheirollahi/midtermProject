@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-
+////this class is jpanel for admin to set add new mwmber
 public class AddMemberPlane extends JPanel {
 
         private JButton addButton;

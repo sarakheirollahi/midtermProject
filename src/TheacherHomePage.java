@@ -3,7 +3,11 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -18,6 +22,7 @@ public class TheacherHomePage extends JFrame {
     private JMenu menu;
     private JMenuBar adminMnueBar;
     private JMenuItem MnueItem;
+    private JMenuItem MnueItem2;
 
     // Declaration of objects
     // of CardLayout class.
@@ -90,8 +95,10 @@ public class TheacherHomePage extends JFrame {
 
 
         MnueItem = new JMenuItem("LOG OUT");
+        MnueItem2 = new JMenuItem("SAVE CHANGE");
         menu = new  JMenu("Menue");
         menu.add(MnueItem);
+        menu.add(MnueItem2);
         adminMnueBar = new JMenuBar();
         adminMnueBar.add(menu);
         setJMenuBar(adminMnueBar);
@@ -107,9 +114,24 @@ public class TheacherHomePage extends JFrame {
             public void actionPerformed(ActionEvent arg0)
             {
                 setVisible(false);
+                loginPanel form = new loginPanel();
+                form.showloginPanel();
 
             }
         });
+        MnueItem2.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+            saveUnivercity(loginPanel.univercity);
+                JOptionPane.showMessageDialog(MnueItem2, "Save Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);}
+
+        });
+        MnueItem.setAccelerator(KeyStroke.getKeyStroke(
+                KeyEvent.VK_E, ActionEvent.CTRL_MASK));
+
+        MnueItem2.setAccelerator(KeyStroke.getKeyStroke(
+                KeyEvent.VK_S, ActionEvent.CTRL_MASK));
 
         profiletBtn.addActionListener(new ActionListener()
         {
@@ -160,7 +182,21 @@ public class TheacherHomePage extends JFrame {
     }
 
     // Main Method
-
+    public void saveUnivercity(Univercity univercity){
+        File f=new File("E:\\univercity.obj");
+        try{
+            FileOutputStream os=new FileOutputStream(f);
+            ObjectOutputStream oos = new ObjectOutputStream(os);
+            oos.writeObject(univercity);
+            oos.close();
+            os.close();
+        }catch (FileNotFoundException ex){
+            Logger.getLogger(loginPanel.class.getName())
+                    .log(Level.SEVERE,null,ex);
+        }catch (IOException ex){
+            Logger.getLogger(AdminHomepage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
 
 
 }

@@ -1,7 +1,8 @@
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Class {
+public class Class implements Serializable {
     int unit;
     String className;
     String thaecherName;

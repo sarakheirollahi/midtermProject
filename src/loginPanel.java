@@ -1,15 +1,17 @@
-
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+import javax.tools.JavaFileManager;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
- public class loginPanel {
+public class loginPanel {
 
     private JFrame loginForm;
     private JButton loginButton;
@@ -24,6 +26,8 @@ import java.awt.event.FocusListener;
         univercity = new Univercity();
         univercity.addTheacher("hi","1");
         univercity.addStudent("hi","1");
+        saveUnivercity(univercity);
+        univercity=loadObject();
         Color myColor = new Color(150 , 0, 250,67);
         Color myColor1 = new Color(200 , 0, 250,150);
         Color myColor2 = new Color(200 , 0, 250);
@@ -101,6 +105,42 @@ import java.awt.event.FocusListener;
         loginForm.setVisible(true);
     }
 
+    public void saveUnivercity(Univercity univercitySave){
+        File f=new File("E:\\univercity.obj");
+        try{
+            FileOutputStream os=new FileOutputStream(f);
+            ObjectOutputStream oos = new ObjectOutputStream(os);
+            oos.writeObject(univercitySave);
+            oos.close();
+            os.close();
+        }catch (FileNotFoundException ex){
+            Logger.getLogger(loginPanel.class.getName()).log(Level.SEVERE,null,ex);
+        }catch (IOException ex){
+            Logger.getLogger(loginPanel.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+    public Univercity loadObject() {
+        File f = new File("E:\\univercity.obj");
+        Univercity x = null;
+        try {
+            FileInputStream is = new FileInputStream(f);
+            BufferedInputStream bis = new BufferedInputStream(is);
+            ObjectInputStream ois = new ObjectInputStream(bis);
+            x = (Univercity) ois.readObject();
+            ois.close();
+            bis.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(loginPanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(loginPanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(loginPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return x;
+    }
+
+
+
     private class ButtonHandler implements ActionListener, FocusListener {
 
         @Override
@@ -123,7 +163,7 @@ import java.awt.event.FocusListener;
                if (pwd.equals(univercity.getPassWord())) {
                    AdminHomepage cl = new AdminHomepage();
                    cl.setVisible(true);
-                 //  loginForm.setVisible(false);
+                  loginForm.setVisible(false);
                    //JOptionPane.showMessageDialog(loginForm, "Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
                } else {
                    JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
@@ -137,7 +177,7 @@ import java.awt.event.FocusListener;
                 if (pwd.equals( univercity.findThecher(user).getPassWord())) {
                     TheacherHomePage cl = new TheacherHomePage(user,pwd);
                     cl.setVisible(true);
-               //     loginForm.setVisible(false);
+                    loginForm.setVisible(false);
                     //JOptionPane.showMessageDialog(loginForm, "Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
@@ -153,7 +193,7 @@ import java.awt.event.FocusListener;
                 if (pwd.equals( univercity.findStudent(user).getPass())) {
                     StudentHomepage form3 = new StudentHomepage(user,pwd);
                     form3.showStudentpanel();
-            //        loginForm.setVisible(false);
+                    loginForm.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(loginForm, "invalid username our password!", "Result", JOptionPane.ERROR_MESSAGE);
                 }

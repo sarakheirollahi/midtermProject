@@ -3,7 +3,11 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 // class extends JFrame
@@ -13,6 +17,7 @@ public class AdminHomepage extends JFrame {
     private JMenu menu;
     private JMenuBar adminMnueBar;
     private JMenuItem adminMnueItem;
+    private JMenuItem adminMnueItem2;
 
 
     public AdminHomepage()
@@ -72,9 +77,11 @@ public class AdminHomepage extends JFrame {
         image.setIcon(accountlogo);
         leftpanel.add(image,BorderLayout.NORTH);
 
-        adminMnueItem = new JMenuItem("LOG OUT");
+        adminMnueItem  = new JMenuItem("LOG OUT");
+        adminMnueItem2 = new JMenuItem("SAVE Change");
         menu = new  JMenu("Menue");
         menu.add(adminMnueItem);
+        menu.add(adminMnueItem2);
         adminMnueBar = new JMenuBar();
         adminMnueBar.add(menu);
         setJMenuBar(adminMnueBar);
@@ -89,9 +96,28 @@ public class AdminHomepage extends JFrame {
             {
                 public void actionPerformed(ActionEvent arg0)
                     {
-                       setVisible(false);
+                        loginPanel form4 = new loginPanel();
+                        form4.showloginPanel();
+                        setVisible(false);
+
                 }
             });
+        adminMnueItem.setAccelerator(KeyStroke.getKeyStroke(
+                KeyEvent.VK_E, ActionEvent.CTRL_MASK));
+
+
+
+
+        adminMnueItem2.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+                saveUnivercity2(loginPanel.univercity);
+            }
+        });
+        adminMnueItem2.setAccelerator(KeyStroke.getKeyStroke(
+                KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+
 
 
         profiletBtn.addActionListener(new ActionListener()
@@ -147,6 +173,20 @@ public class AdminHomepage extends JFrame {
 
     // Main Method
 
-
+    public void saveUnivercity2(Univercity univercity){
+        File f=new File("E:\\univercity.obj");
+        try{
+            FileOutputStream os=new FileOutputStream(f);
+            ObjectOutputStream oos = new ObjectOutputStream(os);
+            oos.writeObject(univercity);
+            oos.close();
+            os.close();
+        }catch (FileNotFoundException ex){
+            Logger.getLogger(loginPanel.class.getName())
+                    .log(Level.SEVERE,null,ex);
+        }catch (IOException ex){
+            Logger.getLogger(AdminHomepage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
 
 }

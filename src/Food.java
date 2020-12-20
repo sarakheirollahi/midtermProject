@@ -5,9 +5,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.IconView;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.Serializable;
+//this panel will be open when student choose food rezervation in homepage
+
 //this class creat jframe  for student untill hi/she can rezerv  food
 
-public class Food {
+public class Food  implements Serializable {
     private JFrame foodframe;
     private JMenu foodMenu;
     private JMenuBar foodbar;
@@ -22,13 +25,15 @@ public class Food {
     private JCheckBox day6;
     private JCheckBox day7;
     private int countChecked;
+    JLabel topLable;
     private   boolean[] selected;
+    private   boolean[] selected2;
 
 
 
 
 
-    public Food(String userName){
+    public Food(String userName) {
     this.userName=userName;
 
     foodweek=new String[loginPanel.univercity.getFood().length];
@@ -36,6 +41,7 @@ public class Food {
         foodweek =loginPanel.univercity.getFood();
         countChecked=0;
         selected= new boolean[]{false,false,false,false,false,false,false};
+        selected2= new boolean[]{false,false,false,false,false,false,false};
         Color myColor4 = new Color(160 ,70 , 180);
         Color myColor3 = new Color(200 , 0, 220);
         Color myColor2 = new Color(200 , 100, 250,250);
@@ -71,7 +77,7 @@ public class Food {
         setButton.addActionListener(handler);
         mainPanel.add(setButton,BorderLayout.SOUTH);
 
-        JLabel topLable = new JLabel(" FOOD SCHUDLE                                                 "+"      " +
+       topLable = new JLabel(" FOOD SCHUDLE                                                 "+"      " +
                 "ACCOUNT :  "
                 + loginPanel.univercity.findStudent(userName).getAccount());
         int toplablewidth = topLable.getPreferredSize().width;
@@ -216,6 +222,10 @@ public class Food {
          foodframe.setSize(750,550);
         foodframe.setVisible(true);
     }
+    public void closeFoodframe() {
+
+        foodframe.setVisible(false);
+    }
 
     private class ButtonHandler implements ActionListener, FocusListener, ItemListener{
 
@@ -228,86 +238,150 @@ public class Food {
                 System.out.println(countChecked);
                 System.out.println(loginPanel.univercity.findStudent(userName).getAccount());
 
-                if (countChecked * 2000 <= loginPanel.univercity.findStudent(userName).getAccount()) {
+                if ((countChecked * 2000) <= loginPanel.univercity.findStudent(userName).getAccount()) {
 
                     if (day1.isSelected()) {
+                        if (!selected2[0]){
+                            selected2[0]=true;
                         loginPanel.univercity.findStudent(userName).reserveFood(1);
+                        day1.setEnabled(false);
+                        countChecked--;}
                     }
                     if (day2.isSelected()) {
+                        if (!selected2[1]){
+                            selected2[1]=true;
                         loginPanel.univercity.findStudent(userName).reserveFood(2);
+                        day2.setEnabled(false);
+                        countChecked--;}
                     }
                     if (day3.isSelected()) {
+                        if (!selected2[2]){
+                            selected2[2]=true;
                         loginPanel.univercity.findStudent(userName).reserveFood(3);
+                        day3.setEnabled(false);
+                        countChecked--;}
                     }
                     if (day4.isSelected()) {
+                        if (!selected2[3]){
+                            selected2[3]=true;
                         loginPanel.univercity.findStudent(userName).reserveFood(4);
+                        day4.setEnabled(false);
+                        countChecked--;}
                     }
                     if (day5.isSelected()) {
+                        if (!selected2[4]){
+                            selected2[4]=true;
                         loginPanel.univercity.findStudent(userName).reserveFood(5);
+                        day5.setEnabled(false);
+                        countChecked--;}
                     }
                     if (day6.isSelected()) {
+                        if (!selected2[5]){
+                            selected2[5]=true;
                         loginPanel.univercity.findStudent(userName).reserveFood(6);
+                        day6.setEnabled(false);
+                        countChecked--;}
                     }
                     if (day7.isSelected()) {
+                        if (!selected2[6]){
+                            selected2[6]=true;
                         loginPanel.univercity.findStudent(userName).reserveFood(7);
+                        day7.setEnabled(false);
+                        countChecked--;}
                     }
                     JOptionPane.showMessageDialog(setButton, "Rezerve Successfully!", "Result", JOptionPane.INFORMATION_MESSAGE);
 
-                } else
+                    topLable.setText(" FOOD SCHUDLE                                                 "+"      " +
+                            "ACCOUNT :  "
+                            + loginPanel.univercity.findStudent(userName).getAccount());
+
+                } else {
+                    if (day1.isSelected()) {
+                        if (!selected2[0]){
+                            day1.setSelected(false);
+                            countChecked--;}
+                    }
+                    if (day2.isSelected()) {
+                        if (!selected2[1]){
+                            day2.setSelected(false);
+                            countChecked--;}
+                    }
+                    if (day3.isSelected()) {
+                        if (!selected2[2]){
+                            day3.setSelected(false);
+                            countChecked--;}
+                    }
+                    if (day4.isSelected()) {
+                        if (!selected2[3]){
+                            day4.setSelected(false);
+                            countChecked--;}
+                    }
+                    if (day5.isSelected()) {
+                        if (!selected2[4]){
+                            day5.setSelected(false);
+                            countChecked--;}
+                    }
+                    if (day6.isSelected()) {
+                        if (!selected2[5]){
+                            day6.setSelected(false);
+                            countChecked--;}
+                    }
+                    if (day7.isSelected()) {
+                        if (!selected2[6]){
+                            day7.setSelected(false);
+                            countChecked--;}
+                 }
                     JOptionPane.showMessageDialog(setButton, "pleas Increas your Account!", "Result", JOptionPane.ERROR_MESSAGE);
+
+                }
             }
         }
         @Override
         public void itemStateChanged(ItemEvent ie) {
 
             if (day1.isSelected()) {
-                day1.setEnabled(false);
                 if (!selected[0]){
                 selected[0]=true;
                 countChecked++;
                }
             }
             if (day2.isSelected()) {
-                day2.setEnabled(false);
                 if (!selected[1]){
                     selected[1]=true;
                     countChecked++;
                 }
             }
             if (day3.isSelected()) {
-                day3.setEnabled(false);
                 if (!selected[2]){
                     selected[2]=true;
                     countChecked++;
                 }
             }
             if (day4.isSelected()) {
-                day4.setEnabled(false);
                 if (!selected[3]){
                     selected[3]=true;
                     countChecked++;
                 }
             }
             if (day5.isSelected()) {
-                day5.setEnabled(false);
                 if (!selected[4]){
                     selected[4]=true;
                     countChecked++;
                 }
             }
             if (day6.isSelected()) {
-                day6.setEnabled(false);
                 if (!selected[5]){
                     selected[5]=true;
                     countChecked++;
                 }
             }
             if (day7.isSelected()) {
-                day7.setEnabled(false);
                 if (!selected[6]){
                     selected[6]=true;
                     countChecked++;
                 }
+
+
             }
 
         System.out.println(countChecked);}

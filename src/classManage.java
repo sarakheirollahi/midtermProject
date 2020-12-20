@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
-
+//this panel will be open when student choose classmanage in homepage
 
 public class classManage {
     private JFrame classFrame;
@@ -21,12 +21,14 @@ public class classManage {
     private ArrayList<Class> currentClass;
     private JTable coursTable;
     private JPanel mainPanel;
-  //  private Univercity uni;
+    private JLabel topLable2;
+    //  private Univercity uni;
 
     public classManage(String user) {
         username =user;
 
         currentClass=new ArrayList<>();
+         loginPanel.univercity.addClass(2,3,"f","e","FIRST_TIME");
         currentClass = loginPanel.univercity.getClassList();
 
 
@@ -65,7 +67,7 @@ public class classManage {
         topLable1.setPreferredSize(new Dimension(toplablewidth, toplableheight));
         topLable1.setFont(new Font("Helvetica Neue", Font.PLAIN, 15));
 
-        JLabel topLable2 = new JLabel("  UNIT :  " + loginPanel.univercity.findStudent(username).getCurrentUnit()+" ");
+        topLable2 = new JLabel("  UNIT :  " + loginPanel.univercity.findStudent(username).getCurrentUnit()+" ");
         Border border1 = BorderFactory.createLineBorder(myColor4, 1);
         topLable2.setBorder(border1);
         topLable2.setBackground(Color.WHITE);
@@ -175,6 +177,9 @@ public class classManage {
                   loginPanel.univercity.getClass(username,coursTable.getValueAt(coursTable.getSelectedRow(),0).toString());
 
                   JOptionPane.showMessageDialog(addButton, "Add Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+                  topLable2.setText("  UNIT :  " + loginPanel.univercity.findStudent(username).getCurrentUnit()+" ");
+
+
 
               }
             else
@@ -187,8 +192,10 @@ public class classManage {
                 if (loginPanel.univercity.findStudent(username).currentUnit+Integer.parseInt(s)<20){
 
                     loginPanel.univercity.getClass(username,coursTable.getValueAt(coursTable.getSelectedRow(),0).toString());
-                    
+
                     JOptionPane.showMessageDialog(addButton, "Add Successful!", "Result", JOptionPane.INFORMATION_MESSAGE);
+                    topLable2.setText("  UNIT :  " + loginPanel.univercity.findStudent(username).getCurrentUnit()+" ");
+
                 }
                 else
                     JOptionPane.showMessageDialog(addButton, "your class is full!", "Result", JOptionPane.ERROR_MESSAGE);
